@@ -1,0 +1,134 @@
+{% load static %}{% verbatim %}<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Checkout · datos de despacho</title>
+{% endverbatim %}<script src="{% static 'js/support.js' %}"></script>{% verbatim %}
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'DM Sans',system-ui,sans-serif;color:#2E1A20;background:#FFFFFF}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;color:#6E1A2E;font-weight:600;letter-spacing:-0.01em}
+.logo{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',Georgia,serif;color:#6E1A2E;letter-spacing:-0.01em}
+.logoimg{display:block;height:44px;width:auto;background:#FFFFFF;border-radius:10px;padding:4px 8px;box-sizing:content-box}
+.img{display:block;width:100%;object-fit:cover}
+.navy{background-color:#0B1B33;background-image:linear-gradient(rgba(127,211,240,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(127,211,240,.07) 1px,transparent 1px);background-size:32px 32px}
+header{background:#7A1A33 !important;border-bottom:0 !important;color:#FFFFFF}
+header .logo{color:#FFFFFF}
+header .logo svg{background:#FFFFFF;border-radius:999px;padding:3px}
+header a{color:#FFFFFF}
+header .nav a{color:#FFE3E8 !important}
+header .nav a:hover{color:#FFFFFF !important}
+header .nav a[style*="#7A1A33"]{color:#FFFFFF !important;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+header li{color:rgba(255,255,255,.72) !important}
+header li[style*="#7A1A33"]{color:#FFFFFF !important;text-decoration:underline;text-underline-offset:6px}
+header a[aria-label^="Carrito"]{color:#7A1A33 !important;border-color:#FFFFFF !important}
+header .ib{color:#FFFFFF}
+header a[aria-label^="Carrito"] span{background:#2F5D3A !important}
+footer{background:#7A1A33;border-top:0 !important;margin-top:80px}
+footer,footer span,footer a{color:#FFE3E8 !important}
+footer a:hover{color:#FFFFFF !important}
+a{color:#7A1A33}a:hover{color:#5E1226}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;background:#2F5D3A;color:#FFFFFF;border:0;border-radius:999px;font:600 16px 'DM Sans',sans-serif;text-decoration:none}
+.btn:hover{background:#234A2D;color:#FFFFFF}
+.btn2{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;background:#FFFFFF;color:#2E1A20;border:1px solid #E2C6CD;border-radius:999px;font:600 14px 'DM Sans',sans-serif}
+.inp{height:44px;border:1px solid #E2C6CD;border-radius:12px;padding:0 12px;font:15px 'DM Sans',sans-serif;color:#2E1A20;background:#FFFFFF;box-sizing:border-box;width:100%}
+.lbl{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:#2E1A20}
+.chk{display:flex;gap:10px;align-items:center;min-height:44px;font-size:15px;cursor:pointer}
+.chk input{width:18px;height:18px;accent-color:#7A1A33}
+</style>
+</helmet>
+<div style="font-family: 'DM Sans', system-ui, sans-serif; color: #2E1A20; background: #FCF5F6">
+
+  <header style="border-bottom: 1px solid #F0DCE1; background: #FFFFFF">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+      <a href="{% endverbatim %}{% url 'inicio' %}{% verbatim %}" style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: #2E1A20; text-decoration: none"><img class="logoimg" src="{% endverbatim %}{% static 'img/logo.png' %}{% verbatim %}" alt="CranEnsenada · Cranberry 100% natural. Producto chileno."></a>
+      <ol aria-label="Pasos de la compra" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 24px; font-size: 14px; font-weight: 600">
+        <li style="color: #7A1A33">1 · Datos</li>
+        <li style="color: #76656A">2 · Pago</li>
+        <li style="color: #76656A">3 · Confirmación</li>
+      </ol>
+    </div>
+  </header>
+
+  <main style="max-width: 1100px; margin: 0 auto; padding: 48px 24px 0; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+    <form style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h1 style="margin: 0; font-size: 34px; font-weight: 700; letter-spacing: -0.02em">Datos de despacho</h1>
+        <div style="font-size: 15px; color: #76656A">Compras como invitado; no necesitas una cuenta.</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px 20px">
+        <label class="lbl" style="grid-column: 1 / -1">Nombre completo<input class="inp" type="text" autocomplete="name"></label>
+        <label class="lbl">Correo electrónico<input class="inp" type="email" autocomplete="email" placeholder="nombre@correo.cl"></label>
+        <label class="lbl">Teléfono<input class="inp" type="tel" autocomplete="tel" placeholder="+56 9"></label>
+        <label class="lbl">Comuna
+          <select class="inp"><option>Selecciona tu comuna</option><option>[Comuna 1]</option><option>[Comuna 2]</option></select>
+        </label>
+        <label class="lbl">Dirección<input class="inp" type="text" autocomplete="street-address" placeholder="Calle, número, depto."></label>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 4px; border-top: 1px solid #F0DCE1; padding-top: 16px">
+        <label class="chk"><input type="checkbox" checked="{{factura}}" onChange="{{toggleFactura}}">Necesito factura</label>
+        <sc-if value="{{factura}}" hint-placeholder-val="{{false}}">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px 20px; padding: 8px 0 12px">
+            <label class="lbl">RUT de la empresa<input class="inp" type="text"></label>
+            <label class="lbl">Razón social<input class="inp" type="text"></label>
+            <label style="grid-column: 1 / -1; min-height: 80px; border: 1px dashed #E2C6CD; border-radius: 18px; background: #FBF1F3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 14px; color: #55434A; cursor: pointer; position: relative; padding: 12px; text-align: center">
+              <span style="font-weight: 600">Adjunta una foto de los antecedentes</span>
+              <span style="font-size: 12px; color: #76656A">Por ejemplo, el e-RUT o el giro de la empresa · imagen o PDF</span>
+              <input type="file" accept="image/*,application/pdf" style="position: absolute; width: 1px; height: 1px; opacity: 0">
+            </label>
+            <div style="grid-column: 1 / -1; font-size: 12px; line-height: 1.5; color: #76656A">La tienda revisa tu solicitud aparte del pago y te avisa si fue aprobada. La factura se emite fuera de este sitio.</div>
+          </div>
+        </sc-if>
+        <label class="chk"><input type="checkbox">Crear una cuenta para mis próximas compras (opcional)</label>
+      </div>
+
+      <div style="background: #FBF1F3; border-radius: 18px; padding: 16px 18px; font-size: 13px; line-height: 1.6; color: #55434A">
+        Usaremos tus datos solo para procesar y despachar este pedido. No los compartimos ni los mostramos en otras secciones del sitio. <a href="#privacidad">Ver aviso de privacidad</a>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between">
+        <a href="{% endverbatim %}{% url 'carrito' %}{% verbatim %}" style="font-size: 15px; font-weight: 600; text-decoration: none">← Volver al carrito</a>
+        <a class="btn" href="{% endverbatim %}{% url 'pago' %}{% verbatim %}">Continuar al pago</a>
+      </div>
+    </form>
+
+    <aside style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 16px; border: 1px solid #F0DCE1; border-radius: 18px; padding: 28px; box-sizing: border-box">
+      <h2 style="margin: 0; font-size: 20px; font-weight: 600">Tu pedido</h2>
+      <div style="display: flex; justify-content: space-between; gap: 12px; font-size: 15px"><span>Mermelada de cranberry 460 g × 1</span><span>$6.990</span></div>
+      <div style="display: flex; justify-content: space-between; gap: 12px; font-size: 15px"><span>Pulpa de cranberry 1 kg × 2</span><span>$19.980</span></div>
+      <div style="display: flex; flex-direction: column; gap: 8px; border-top: 1px solid #F0DCE1; padding-top: 16px">
+        <label class="lbl" for="codigo">Código de descuento</label>
+        <div style="display: flex; gap: 8px">
+          <input id="codigo" class="inp" type="text" placeholder="Ingresa tu código" value="CRAN10">
+          <button type="button" class="btn2">Aplicar</button>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: space-between; font-size: 15px; border-top: 1px solid #F0DCE1; padding-top: 16px"><span style="color: #76656A">Subtotal</span><span>$26.970</span></div>
+      <div style="display: flex; justify-content: space-between; font-size: 15px"><span style="color: #76656A">Descuento</span><span style="color: #2F5D3A">− $2.697 (CRAN10 · 10%)</span></div>
+      <div style="display: flex; justify-content: space-between; font-size: 15px"><span style="color: #76656A">Despacho</span><span>$3.990</span></div>
+      <div style="display: flex; justify-content: space-between; font-size: 18px; font-weight: 700; border-top: 1px solid #F0DCE1; padding-top: 16px"><span>Total</span><span>$28.263</span></div>
+    </aside>
+  </main>
+  <div style="height: 80px"></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1240}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { factura: false }; }
+  renderVals() {
+    return {
+      factura: this.state.factura,
+      toggleFactura: () => this.setState({ factura: !this.state.factura })
+    };
+  }
+}
+</script>
+</body>
+</html>
+{% endverbatim %}

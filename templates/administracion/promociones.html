@@ -1,0 +1,126 @@
+{% load static %}{% verbatim %}<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Promociones y descuentos</title>
+{% endverbatim %}<script src="{% static 'js/support.js' %}"></script>{% verbatim %}
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'DM Sans',system-ui,sans-serif;color:#2E1A20;background:#FBF1F3}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;color:#6E1A2E;font-weight:600;letter-spacing:-0.01em}
+.logo{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',Georgia,serif;color:#6E1A2E;letter-spacing:-0.01em}
+.logoimg{display:block;height:44px;width:auto;background:#FFFFFF;border-radius:10px;padding:4px 8px;box-sizing:content-box}
+.img{display:block;width:100%;object-fit:cover}
+.navy{background-color:#0B1B33;background-image:linear-gradient(rgba(127,211,240,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(127,211,240,.07) 1px,transparent 1px);background-size:32px 32px}
+header{background:#7A1A33 !important;border-bottom:0 !important;color:#FFFFFF}
+header .logo{color:#FFFFFF}
+header .logo svg{background:#FFFFFF;border-radius:999px;padding:3px}
+header span{color:#FFE3E8 !important}
+header .logo span{color:#FFFFFF !important}
+header a{color:#FFFFFF !important}
+header a:hover{color:#FFE3E8 !important}
+.side a[style*="#F8E3E8"]{background:#2F5D3A !important;color:#FFFFFF !important}
+.side a:hover{background:#E6F2E8 !important}
+.side a[style*="#F8E3E8"]:hover{background:#234A2D !important}
+a{color:#7A1A33}a:hover{color:#5E1226}
+.side a{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:6px;color:#2E1A20;text-decoration:none;font-size:15px;font-weight:500}
+.side a:hover{background:#FBF1F3;color:#2E1A20}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;background:#2F5D3A;color:#FFFFFF;border:0;border-radius:999px;font:600 15px 'DM Sans',sans-serif}
+.btn:hover{background:#234A2D}
+.inp{height:44px;border:1px solid #E2C6CD;border-radius:12px;padding:0 12px;font:15px 'DM Sans',sans-serif;color:#2E1A20;background:#FFFFFF;box-sizing:border-box;width:100%}
+.lbl{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:#2E1A20}
+.card{background:#FFFFFF;border:1px solid #F0DCE1;border-radius:20px;padding:24px;box-sizing:border-box}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{text-align:left;font-weight:600;color:#76656A;font-size:13px;padding:10px 12px;border-bottom:1px solid #F0DCE1;white-space:nowrap}
+.tbl td{padding:12px;border-bottom:1px solid #F0DCE1;white-space:nowrap}
+.act{min-height:36px;padding:0 12px;border:1px solid #E2C6CD;border-radius:999px;background:#FFFFFF;font:600 13px 'DM Sans',sans-serif;color:#2E1A20}
+.chk{display:flex;gap:10px;align-items:center;min-height:44px;font-size:15px}
+.chk input{width:18px;height:18px;accent-color:#7A1A33}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #FBF1F3; font-family: 'DM Sans', system-ui, sans-serif; color: #2E1A20">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #F0DCE1">
+    <div style="padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center">
+      <div style="display: flex; align-items: baseline; gap: 12px"><span style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em"><img class="logoimg" src="{% endverbatim %}{% static 'img/logo.png' %}{% verbatim %}" alt="CranEnsenada · Cranberry 100% natural. Producto chileno."></span><span style="font-size: 13px; color: #76656A">Administración</span></div>
+      <div style="display: flex; align-items: center; gap: 16px; font-size: 14px"><span>[Nombre del administrador]</span><a href="{% endverbatim %}{% url 'panel_login' %}{% verbatim %}" style="min-height: 44px; display: flex; align-items: center; font-weight: 600">Cerrar sesión</a></div>
+    </div>
+  </header>
+  <div style="display: flex; flex-wrap: wrap">
+    <nav class="side" aria-label="Menú de administración" style="flex: 1 1 220px; max-width: 100%; background: #FFFFFF; border-right: 1px solid #F0DCE1; padding: 20px 12px; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px">
+      <a href="{% endverbatim %}{% url 'panel_dashboard' %}{% verbatim %}">Dashboard</a>
+      <a href="{% endverbatim %}{% url 'panel_pedidos' %}{% verbatim %}">Pedidos</a>
+      <a href="{% endverbatim %}{% url 'panel_pagos' %}{% verbatim %}">Pagos y facturas</a>
+      <a href="{% endverbatim %}{% url 'panel_productos' %}{% verbatim %}">Productos</a>
+      <a href="{% endverbatim %}{% url 'panel_inventario' %}{% verbatim %}">Inventario</a>
+      <a href="{% endverbatim %}{% url 'panel_mermas' %}{% verbatim %}">Mermas y muestras</a>
+      <a href="{% endverbatim %}{% url 'panel_promociones' %}{% verbatim %}" style="background: #F8E3E8; color: #7A1A33; font-weight: 600">Promociones</a>
+      <a href="{% endverbatim %}{% url 'panel_recetas' %}{% verbatim %}">Recetas</a>
+    </nav>
+
+    <main style="flex: 999 1 560px; min-width: 0; padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+      <h1 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">Promociones y códigos de descuento</h1>
+
+      <form class="card" style="display: flex; flex-direction: column; gap: 18px">
+        <h2 style="margin: 0; font-size: 17px; font-weight: 600">Nuevo código</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px 18px">
+          <label class="lbl">Código<input class="inp" type="text" placeholder="p. ej. BIENVENIDA10" style="text-transform: uppercase"></label>
+          <label class="lbl">Tipo de descuento<select class="inp"><option>Porcentaje (%)</option><option>Monto fijo ($)</option></select></label>
+          <label class="lbl">Valor<input class="inp" type="number" min="0" placeholder="0"></label>
+          <label class="lbl">Válido desde<input class="inp" type="date"></label>
+          <label class="lbl">Válido hasta<input class="inp" type="date"></label>
+          <label class="lbl">Usos máximos<input class="inp" type="number" min="1" placeholder="Sin límite"></label>
+          <label class="lbl">Compra mínima (opcional)<input class="inp" type="number" min="0" placeholder="$ 0"></label>
+          <label class="lbl">Aplica a<select class="inp"><option>Todos los productos</option><option>[Producto o categoría]</option></select></label>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; border-top: 1px solid #F0DCE1; padding-top: 16px">
+          <label class="chk"><input type="checkbox" checked="">Activo</label>
+          <button type="button" class="btn">Crear código</button>
+        </div>
+      </form>
+
+      <section class="card" style="display: flex; flex-direction: column; gap: 12px">
+        <h2 style="margin: 0; font-size: 17px; font-weight: 600">Códigos creados</h2>
+        <div style="overflow-x: auto">
+          <table class="tbl">
+            <thead><tr><th>Código</th><th>Descuento</th><th>Vigencia</th><th>Usos</th><th>Estado</th><th style="text-align: right">Acciones</th></tr></thead>
+            <tbody>
+              <sc-for list="{{codigos}}" as="c" hint-placeholder-count="3">
+                <tr>
+                  <td style="font-weight: 700; letter-spacing: 0.04em">[CÓDIGO]</td>
+                  <td>{{c.desc}}</td>
+                  <td>[dd/mm] – [dd/mm/aaaa]</td>
+                  <td>[N] / [N]</td>
+                  <td><span style="{{c.estilo}}">{{c.estado}}</span></td>
+                  <td style="text-align: right"><span style="display: inline-flex; gap: 8px"><button class="act">Editar</button><button class="act">{{c.accion}}</button></span></td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1080}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const badge = (bg, c) => 'font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: ' + bg + '; color: ' + c;
+    const act = badge('#E2EFE4', '#2F5D3A');
+    const ina = badge('#FBF1F3', '#76656A');
+    const codigos = [
+      { desc: '[N] %', estado: 'Activo', estilo: act, accion: 'Desactivar' },
+      { desc: '$ [Monto]', estado: 'Activo', estilo: act, accion: 'Desactivar' },
+      { desc: '[N] %', estado: 'Vencido', estilo: ina, accion: 'Reactivar' }
+    ];
+    return { codigos };
+  }
+}
+</script>
+</body>
+</html>
+{% endverbatim %}

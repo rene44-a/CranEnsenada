@@ -1,0 +1,82 @@
+{% load static %}{% verbatim %}<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Acceso administrativo</title>
+{% endverbatim %}<script src="{% static 'js/support.js' %}"></script>{% verbatim %}
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'DM Sans',system-ui,sans-serif;color:#2E1A20;background:#FBF1F3}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;color:#6E1A2E;font-weight:600;letter-spacing:-0.01em}
+.logo{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',Georgia,serif;color:#6E1A2E;letter-spacing:-0.01em}
+.logoimg{display:block;height:44px;width:auto;background:#FFFFFF;border-radius:10px;padding:4px 8px;box-sizing:content-box}
+.img{display:block;width:100%;object-fit:cover}
+.navy{background-color:#0B1B33;background-image:linear-gradient(rgba(127,211,240,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(127,211,240,.07) 1px,transparent 1px);background-size:32px 32px}
+header{background:#7A1A33 !important;border-bottom:0 !important;color:#FFFFFF}
+header .logo{color:#FFFFFF}
+header .logo svg{background:#FFFFFF;border-radius:999px;padding:3px}
+header span{color:#FFE3E8 !important}
+header .logo span{color:#FFFFFF !important}
+header a{color:#FFFFFF !important}
+header a:hover{color:#FFE3E8 !important}
+.side a[style*="#F8E3E8"]{background:#2F5D3A !important;color:#FFFFFF !important}
+.side a:hover{background:#E6F2E8 !important}
+.side a[style*="#F8E3E8"]:hover{background:#234A2D !important}
+a{color:#7A1A33}a:hover{color:#5E1226}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;background:#2F5D3A;color:#FFFFFF;border:0;border-radius:999px;font:600 16px 'DM Sans',sans-serif;text-decoration:none}
+.btn:hover{background:#234A2D;color:#FFFFFF}
+.inp{height:44px;border:1px solid #E2C6CD;border-radius:12px;padding:0 12px;font:15px 'DM Sans',sans-serif;color:#2E1A20;background:#FFFFFF;box-sizing:border-box;width:100%}
+.mq{min-height:32px;padding:0 12px;border:0;border-radius:8px;font:600 12px 'DM Sans',sans-serif;cursor:pointer}
+.lbl{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:#2E1A20}
+</style>
+</helmet>
+<div style="min-height: 800px; background: #FBF1F3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; padding: 48px 16px; box-sizing: border-box; font-family: 'DM Sans', system-ui, sans-serif; color: #2E1A20">
+  <div role="group" aria-label="Estado de maqueta" style="display: flex; align-items: center; gap: 8px; border: 1px dashed #C9B7BC; border-radius: 12px; padding: 6px 8px 6px 12px; font-size: 12px; color: #76656A">
+    <span>Vista de maqueta:</span>
+    <sc-for list="{{estados}}" as="e" hint-placeholder-count="2"><button type="button" class="mq" style="{{e.estilo}}" onClick="{{e.elegir}}">{{e.nombre}}</button></sc-for>
+  </div>
+  <form style="width: 100%; max-width: 400px; background: #FFFFFF; border: 1px solid #F0DCE1; border-top: 8px solid #7A1A33; border-radius: 22px; padding: 40px 36px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <div style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em"><img class="logoimg" src="{% endverbatim %}{% static 'img/logo.png' %}{% verbatim %}" alt="CranEnsenada · Cranberry 100% natural. Producto chileno."></div>
+      <h1 style="margin: 0; font-size: 26px; font-weight: 700">Acceso administrativo</h1>
+      <div style="font-size: 14px; color: #76656A">Ingresa con tu usuario de administración.</div>
+    </div>
+    <sc-if value="{{conError}}" hint-placeholder-val="{{false}}">
+      <div role="alert" style="display: flex; gap: 10px; align-items: flex-start; background: #FDECEC; color: #8A1C1C; border-radius: 12px; padding: 12px 14px; font-size: 14px; line-height: 1.45">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex: none; margin-top: 1px"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v6M12 16.5v.5"></path></svg>
+        <span>El correo o la contraseña no son correctos. Revisa los datos e inténtalo de nuevo.</span>
+      </div>
+    </sc-if>
+    <label class="lbl">Correo<input class="inp" type="email" autocomplete="username"></label>
+    <label class="lbl">Contraseña<input class="inp" type="password" autocomplete="current-password"></label>
+    <a class="btn" href="{% endverbatim %}{% url 'panel_dashboard' %}{% verbatim %}">Ingresar</a>
+    <div style="display: flex; gap: 10px; align-items: flex-start; font-size: 12px; line-height: 1.5; color: #76656A; border-top: 1px solid #F0DCE1; padding-top: 16px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 1px"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+      <span>Solo personal autorizado. Cada operación queda registrada con el usuario que la realizó.</span>
+    </div>
+  </form>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":800}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { error: false }; }
+  renderVals() {
+    const on = 'background: #2E1A20; color: #FFFFFF', off = 'background: #FFFFFF; color: #2E1A20';
+    const e = this.state.error;
+    return {
+      conError: e,
+      estados: [
+        { nombre: 'Normal', estilo: e ? off : on, elegir: () => this.setState({ error: false }) },
+        { nombre: 'Credenciales incorrectas', estilo: e ? on : off, elegir: () => this.setState({ error: true }) }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
+{% endverbatim %}

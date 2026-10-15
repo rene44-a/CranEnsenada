@@ -1,0 +1,85 @@
+{% load static %}{% verbatim %}<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Catálogo en celular</title>
+{% endverbatim %}<script src="{% static 'js/support.js' %}"></script>{% verbatim %}
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'DM Sans',system-ui,sans-serif;color:#2E1A20;background:#FFFFFF}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;color:#6E1A2E;font-weight:600;letter-spacing:-0.01em}
+.logo{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',Georgia,serif;color:#6E1A2E;letter-spacing:-0.01em}
+.logoimg{display:block;height:34px;width:auto;background:#FFFFFF;border-radius:10px;padding:4px 8px;box-sizing:content-box}
+.img{display:block;width:100%;object-fit:cover}
+.navy{background-color:#0B1B33;background-image:linear-gradient(rgba(127,211,240,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(127,211,240,.07) 1px,transparent 1px);background-size:32px 32px}
+header{background:#7A1A33 !important;border-bottom:0 !important;color:#FFFFFF}
+header .logo{color:#FFFFFF}
+header .logo svg{background:#FFFFFF;border-radius:999px;padding:3px}
+header a{color:#FFFFFF}
+header .nav a{color:#FFE3E8 !important}
+header .nav a:hover{color:#FFFFFF !important}
+header .nav a[style*="#7A1A33"]{color:#FFFFFF !important;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+header li{color:rgba(255,255,255,.72) !important}
+header li[style*="#7A1A33"]{color:#FFFFFF !important;text-decoration:underline;text-underline-offset:6px}
+header a[aria-label^="Carrito"]{color:#7A1A33 !important;border-color:#FFFFFF !important}
+header .ib{color:#FFFFFF}
+header a[aria-label^="Carrito"] span{background:#2F5D3A !important}
+footer{background:#7A1A33;border-top:0 !important;margin-top:80px}
+footer,footer span,footer a{color:#FFE3E8 !important}
+footer a:hover{color:#FFFFFF !important}
+a{color:#7A1A33}a:hover{color:#5E1226}
+.ph{background:#FBF1F3;border:1px dashed #E2C6CD;display:flex;align-items:center;justify-content:center;color:#76656A;font-size:12px;text-align:center;box-sizing:border-box}
+.chip{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid #E2C6CD;background:#FFFFFF;font:500 13px 'DM Sans',sans-serif;color:#2E1A20;white-space:nowrap}
+.ib{width:44px;height:44px;border:0;background:none;display:flex;align-items:center;justify-content:center;color:#2E1A20}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; overflow: hidden; display: flex; flex-direction: column; background: #FFFFFF; font-family: 'DM Sans', system-ui, sans-serif; color: #2E1A20">
+  <header style="display: flex; align-items: center; justify-content: space-between; padding: 8px 8px 8px 4px; border-bottom: 1px solid #F0DCE1">
+    <button class="ib" aria-label="Abrir menú"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+    <div style="font-size: 19px; font-weight: 700; letter-spacing: -0.02em"><img class="logoimg" src="{% endverbatim %}{% static 'img/logo.png' %}{% verbatim %}" alt="CranEnsenada · Cranberry 100% natural. Producto chileno."></div>
+    <button class="ib" aria-label="Carrito, 2 productos" style="position: relative"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12z"></path><path d="M6 6 5 3H2"></path><circle cx="9" cy="20" r="1.4"></circle><circle cx="18" cy="20" r="1.4"></circle></svg><span style="position: absolute; top: 4px; right: 2px; min-width: 18px; height: 18px; border-radius: 999px; background: #7A1A33; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span></button>
+  </header>
+
+  <div style="padding: 20px 16px 12px; display: flex; flex-direction: column; gap: 14px">
+    <h1 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">Tienda</h1>
+    <label style="display: flex; align-items: center; gap: 8px; height: 44px; border: 1px solid #E2C6CD; border-radius: 12px; padding: 0 12px; color: #76656A">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+      <input type="search" aria-label="Buscar productos" placeholder="Buscar productos" style="border: 0; outline: none; flex: 1; font: 15px 'DM Sans', sans-serif; color: #2E1A20; min-width: 0">
+    </label>
+    <div style="display: flex; gap: 8px; overflow-x: auto">
+      <button class="chip" style="background: #2E1A20; color: #FFFFFF; border-color: #2E1A20">Todos</button>
+      <button class="chip">Gourmet Premium</button>
+      <button class="chip">IQF y Pulpa</button>
+    </div>
+  </div>
+
+  <div style="flex: 1; overflow: hidden; padding: 4px 16px 16px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 14px; align-content: start">
+    <sc-for list="{{productos}}" as="p" hint-placeholder-count="4">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <sc-if value="{{p.foto}}" hint-placeholder-val="{{true}}"><img class="img" src="{{p.foto}}" alt="{{p.nombre}}" style="aspect-ratio: 1 / 1; border-radius: 18px"></sc-if><sc-if value="{{p.sinFoto}}" hint-placeholder-val="{{false}}"><div class="ph" style="aspect-ratio: 1 / 1; border-radius: 18px">Foto pendiente</div></sc-if>
+        <div style="font-size: 14px; font-weight: 600">{{p.nombre}}</div>
+        <div style="font-size: 15px; font-weight: 700; color: #7A1A33">{{p.precio}}</div>
+        <button style="min-height: 44px; border: 0; border-radius: 12px; background: #2F5D3A; color: #FFFFFF; font: 600 14px 'DM Sans', sans-serif">Agregar</button>
+      </div>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return { productos: [
+      { nombre: 'Mermelada de cranberry', precio: '$6.990', formato: 'Gourmet Premium · 460 g', linea: 'Gourmet Premium', foto: '{% endverbatim %}{% static 'img/mermelada.jpg' %}{% verbatim %}', sinFoto: false },
+      { nombre: 'Conserva de cranberry', precio: '$7.490', formato: 'Gourmet Premium · 460 g', linea: 'Gourmet Premium', foto: '{% endverbatim %}{% static 'img/conserva.jpg' %}{% verbatim %}', sinFoto: false },
+      { nombre: 'Pulpa de cranberry', precio: '$9.990', formato: 'IQF y Pulpa · 1 kg · sin azúcar añadida', linea: 'IQF y Pulpa', foto: '{% endverbatim %}{% static 'img/pulpa.jpg' %}{% verbatim %}', sinFoto: false },
+      { nombre: 'Cranberry IQF', precio: '$8.990', formato: 'IQF y Pulpa · 1 kg · fruta congelada', linea: 'IQF y Pulpa', foto: '', sinFoto: true },
+      { nombre: '100% jugo de cranberry', precio: '$4.990', formato: '1 L · sin azúcar añadida', linea: 'Jugos', foto: '{% endverbatim %}{% static 'img/jugo.jpg' %}{% verbatim %}', sinFoto: false }
+    ].slice(0, 4) }; }
+}
+</script>
+</body>
+</html>
+{% endverbatim %}

@@ -1,0 +1,221 @@
+{% load static %}{% verbatim %}<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Pedidos</title>
+{% endverbatim %}<script src="{% static 'js/support.js' %}"></script>{% verbatim %}
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'DM Sans',system-ui,sans-serif;color:#2E1A20;background:#FBF1F3}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;color:#6E1A2E;font-weight:600;letter-spacing:-0.01em}
+.logo{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',Georgia,serif;color:#6E1A2E;letter-spacing:-0.01em}
+.logoimg{display:block;height:44px;width:auto;background:#FFFFFF;border-radius:10px;padding:4px 8px;box-sizing:content-box}
+.img{display:block;width:100%;object-fit:cover}
+.navy{background-color:#0B1B33;background-image:linear-gradient(rgba(127,211,240,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(127,211,240,.07) 1px,transparent 1px);background-size:32px 32px}
+header{background:#7A1A33 !important;border-bottom:0 !important;color:#FFFFFF}
+header .logo{color:#FFFFFF}
+header .logo svg{background:#FFFFFF;border-radius:999px;padding:3px}
+header span{color:#FFE3E8 !important}
+header .logo span{color:#FFFFFF !important}
+header a{color:#FFFFFF !important}
+header a:hover{color:#FFE3E8 !important}
+.side a[style*="#F8E3E8"]{background:#2F5D3A !important;color:#FFFFFF !important}
+.side a:hover{background:#E6F2E8 !important}
+.side a[style*="#F8E3E8"]:hover{background:#234A2D !important}
+a{color:#7A1A33}a:hover{color:#5E1226}
+.side a{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:6px;color:#2E1A20;text-decoration:none;font-size:15px;font-weight:500}
+.side a:hover{background:#FBF1F3;color:#2E1A20}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 20px;background:#2F5D3A;color:#FFFFFF;border:0;border-radius:999px;font:600 15px 'DM Sans',sans-serif;text-decoration:none}
+.btn:hover{background:#234A2D;color:#FFFFFF}
+.inp{height:44px;border:1px solid #E2C6CD;border-radius:12px;padding:0 12px;font:15px 'DM Sans',sans-serif;color:#2E1A20;background:#FFFFFF;box-sizing:border-box}
+.card{background:#FFFFFF;border:1px solid #F0DCE1;border-radius:20px;padding:24px;box-sizing:border-box}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{text-align:left;font-weight:600;color:#76656A;font-size:13px;padding:10px 12px;border-bottom:1px solid #F0DCE1;white-space:nowrap}
+.tbl td{padding:12px;border-bottom:1px solid #F0DCE1;white-space:nowrap;vertical-align:middle}
+.ph{background:#FBF1F3;border:1px dashed #E2C6CD;display:flex;align-items:center;justify-content:center;color:#76656A;font-size:11px;box-sizing:border-box}
+.lbl{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:#2E1A20}
+.btn2{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;background:#FFFFFF;color:#2E1A20;border:1px solid #E2C6CD;border-radius:999px;font:600 14px 'DM Sans',sans-serif;cursor:pointer}
+.tbl tr.sel td{background:#F2F8F3}
+.act{min-height:36px;padding:0 12px;border:1px solid #E2C6CD;border-radius:999px;background:#FFFFFF;font:600 13px 'DM Sans',sans-serif;color:#2E1A20;text-decoration:none;display:inline-flex;align-items:center}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #FBF1F3; font-family: 'DM Sans', system-ui, sans-serif; color: #2E1A20">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #F0DCE1">
+    <div style="padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center">
+      <div style="display: flex; align-items: baseline; gap: 12px"><span style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em"><img class="logoimg" src="{% endverbatim %}{% static 'img/logo.png' %}{% verbatim %}" alt="CranEnsenada · Cranberry 100% natural. Producto chileno."></span><span style="font-size: 13px; color: #76656A">Administración</span></div>
+      <div style="display: flex; align-items: center; gap: 16px; font-size: 14px"><span>[Nombre del administrador]</span><a href="{% endverbatim %}{% url 'panel_login' %}{% verbatim %}" style="min-height: 44px; display: flex; align-items: center; font-weight: 600">Cerrar sesión</a></div>
+    </div>
+  </header>
+  <div style="display: flex; flex-wrap: wrap">
+    <nav class="side" aria-label="Menú de administración" style="flex: 1 1 220px; max-width: 100%; background: #FFFFFF; border-right: 1px solid #F0DCE1; padding: 20px 12px; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px">
+      <a href="{% endverbatim %}{% url 'panel_dashboard' %}{% verbatim %}">Dashboard</a>
+      <a href="{% endverbatim %}{% url 'panel_pedidos' %}{% verbatim %}" style="background: #F8E3E8; color: #7A1A33; font-weight: 600">Pedidos</a>
+      <a href="{% endverbatim %}{% url 'panel_pagos' %}{% verbatim %}">Pagos y facturas</a>
+      <a href="{% endverbatim %}{% url 'panel_productos' %}{% verbatim %}">Productos</a>
+      <a href="{% endverbatim %}{% url 'panel_inventario' %}{% verbatim %}">Inventario</a>
+      <a href="{% endverbatim %}{% url 'panel_mermas' %}{% verbatim %}">Mermas y muestras</a>
+      <a href="{% endverbatim %}{% url 'panel_promociones' %}{% verbatim %}">Promociones</a>
+      <a href="{% endverbatim %}{% url 'panel_recetas' %}{% verbatim %}">Recetas</a>
+    </nav>
+
+    <main style="flex: 999 1 560px; min-width: 0; padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h1 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">Pedidos</h1>
+        <div style="font-size: 14px; color: #76656A">Historial de pedidos y ventas. Desde aquí actualizas la preparación, el despacho y la entrega; el comprador ve cada cambio en su seguimiento.</div>
+      </div>
+
+      <section class="card" style="display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end">
+          <input class="inp" type="search" aria-label="Buscar pedido" placeholder="Buscar por N° de pedido o cliente" style="flex: 1 1 240px">
+          <select class="inp" aria-label="Estado del pedido" style="width: 190px"><option>Todos los estados</option><option>Pendiente de validación</option><option>Pago confirmado</option><option>En preparación</option><option>Despachado</option><option>Entregado</option></select>
+          <select class="inp" aria-label="Factura" style="width: 170px"><option>Factura: todas</option><option>Sin factura</option><option>Solicitud pendiente</option><option>Aprobada</option><option>Rechazada</option></select>
+          <input class="inp" type="date" aria-label="Fecha" style="width: 160px">
+        </div>
+        <div style="overflow-x: auto">
+          <table class="tbl">
+            <thead><tr><th>N° pedido</th><th>Fecha</th><th>Cliente</th><th>Origen</th><th>Total</th><th>Pago</th><th>Factura</th><th>Estado del pedido</th><th style="text-align: right">Detalle</th></tr></thead>
+            <tbody>
+              <sc-for list="{{pedidos}}" as="p" hint-placeholder-count="5">
+                <tr class="{{p.clase}}">
+                  <td style="font-weight: 700">{{p.num}}</td>
+                  <td>[dd/mm/aaaa]</td>
+                  <td>[Nombre del cliente]</td>
+                  <td>{{p.origen}}</td>
+                  <td style="font-weight: 600">[$ Total]</td>
+                  <td><span style="{{p.estiloPago}}">{{p.pago}}</span></td>
+                  <td>{{p.factura}}</td>
+                  <td><span style="{{p.estiloEstado}}">{{p.estado}}</span></td>
+                  <td style="text-align: right"><button type="button" class="act" onClick="{{p.ver}}">Ver</button></td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+        <div style="font-size: 13px; color: #76656A">Los pedidos con transferencia pendiente de validación no cuentan como ventas pagadas ni descuentan stock hasta que se aprueba el comprobante en <a href="{% endverbatim %}{% url 'panel_pagos' %}{% verbatim %}">Pagos y facturas</a>.</div>
+      </section>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+        <section class="card" style="flex: 2 1 420px; display: flex; flex-direction: column; gap: 14px">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
+            <h2 style="margin: 0; font-size: 18px; font-weight: 600">Pedido {{sel.num}}</h2>
+            <span style="{{sel.estiloEstado}}">{{sel.estado}}</span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px 20px; font-size: 14px">
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #76656A; font-size: 12px">Cliente</span><span>[Nombre] · [correo] · [teléfono]</span></div>
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #76656A; font-size: 12px">Despacho</span><span>[Dirección], [Comuna]</span></div>
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #76656A; font-size: 12px">Pago</span><span>{{sel.metodo}} · {{sel.pago}}</span></div>
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #76656A; font-size: 12px">Factura</span><span>{{sel.factura}}</span></div>
+          </div>
+          <table class="tbl">
+            <thead><tr><th>Producto</th><th>Cantidad</th><th style="text-align: right">Subtotal</th></tr></thead>
+            <tbody>
+              <tr><td>[Producto 1]</td><td>1</td><td style="text-align: right">[$ Subtotal]</td></tr>
+              <tr><td>[Producto 2]</td><td>2</td><td style="text-align: right">[$ Subtotal]</td></tr>
+              <tr><td style="font-weight: 700">Total</td><td></td><td style="text-align: right; font-weight: 700">[$ Total]</td></tr>
+            </tbody>
+          </table>
+          <div style="font-size: 12px; color: #76656A">Los datos del comprador solo se usan para preparar y despachar el pedido.</div>
+        </section>
+
+        <section class="card" style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 14px">
+          <h2 style="margin: 0; font-size: 18px; font-weight: 600">Actualizar estado</h2>
+          <sc-if value="{{sel.bloqueado}}" hint-placeholder-val="{{false}}">
+            <div style="background: #F6EBDC; color: #7A4800; border-radius: 12px; padding: 12px 14px; font-size: 13px; line-height: 1.5">El pago aún no está confirmado. El pedido podrá pasar a preparación cuando se apruebe el comprobante.</div>
+          </sc-if>
+          <sc-if value="{{sel.editable}}" hint-placeholder-val="{{true}}">
+            <div style="display: flex; flex-direction: column; gap: 12px">
+              <div role="group" aria-label="Nuevo estado" style="display: flex; flex-wrap: wrap; gap: 8px">
+                <sc-for list="{{opciones}}" as="o" hint-placeholder-count="3">
+                  <button type="button" class="act" style="{{o.estilo}}" onClick="{{o.elegir}}">{{o.nombre}}</button>
+                </sc-for>
+              </div>
+              <label class="lbl">N° de seguimiento del transporte (opcional)<input class="inp" type="text" placeholder="[Courier] · [código]"></label>
+              <button type="button" class="btn" onClick="{{guardar}}">Guardar estado</button>
+            </div>
+          </sc-if>
+          <div style="display: flex; flex-direction: column; gap: 0; border-top: 1px solid #F0DCE1; padding-top: 12px">
+            <span style="font-size: 13px; font-weight: 600; margin-bottom: 6px">Historial de cambios</span>
+            <sc-for list="{{historial}}" as="h" hint-placeholder-count="3">
+              <div style="display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid #F6EDEF; font-size: 13px">
+                <span><strong>{{h.estado}}</strong></span>
+                <span style="color: #76656A; text-align: right">{{h.quien}} · [dd/mm hh:mm]</span>
+              </div>
+            </sc-for>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1500}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sel: 0,
+      nuevo: null,
+      estados: ['Pago confirmado', 'Pendiente de validación', 'En preparación', 'Despachado', 'Entregado'],
+      hist: [
+        [['Pedido realizado', 'Sistema'], ['Pago confirmado', 'Pasarela de pago'], ['Boleta emitida', 'Sistema']],
+        [['Pedido realizado', 'Sistema'], ['Pendiente de validación', 'Comprobante subido por el comprador']],
+        [['Pedido realizado', 'Sistema'], ['Pago confirmado', '[Administrador 1]'], ['Boleta emitida', 'Sistema'], ['En preparación', '[Administrador 2]']],
+        [['Pedido realizado', 'Sistema'], ['Pago confirmado', 'Pasarela de pago'], ['Boleta emitida', 'Sistema'], ['En preparación', '[Administrador 1]'], ['Despachado', '[Administrador 1]']],
+        [['Venta registrada', '[Administrador 2]'], ['Entregado', '[Administrador 2]']]
+      ]
+    };
+  }
+  renderVals() {
+    const badge = (bg, c) => 'font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; white-space: nowrap; background: ' + bg + '; color: ' + c;
+    const color = {
+      'Pendiente de validación': badge('#F6EBDC', '#7A4800'),
+      'Pago confirmado': badge('#F8E3E8', '#7A1A33'),
+      'En preparación': badge('#E6EEF8', '#24467A'),
+      'Despachado': badge('#E6EEF8', '#24467A'),
+      'Entregado': badge('#E2EFE4', '#2F5D3A')
+    };
+    const base = [
+      { num: '[000126]', origen: 'Web', metodo: 'Tarjeta', factura: 'No solicitada' },
+      { num: '[000125]', origen: 'Web', metodo: 'Transferencia', factura: 'Solicitud pendiente' },
+      { num: '[000124]', origen: 'Web', metodo: 'Transferencia', factura: 'Aprobada' },
+      { num: '[000123]', origen: 'Web', metodo: 'Tarjeta', factura: 'No solicitada' },
+      { num: '[000120]', origen: 'Manual', metodo: 'Venta con factura', factura: 'Emitida fuera de la plataforma' }
+    ];
+    const est = this.state.estados;
+    const pagoDe = (e) => e === 'Pendiente de validación' ? 'Pendiente de validación' : 'Confirmado';
+    const pedidos = base.map((p, i) => ({
+      ...p,
+      estado: est[i],
+      estiloEstado: color[est[i]],
+      pago: pagoDe(est[i]),
+      estiloPago: est[i] === 'Pendiente de validación' ? badge('#F6EBDC', '#7A4800') : badge('#E2EFE4', '#2F5D3A'),
+      clase: this.state.sel === i ? 'sel' : '',
+      ver: () => this.setState({ sel: i, nuevo: null })
+    }));
+    const s = this.state.sel;
+    const sel = pedidos[s];
+    const flujo = ['En preparación', 'Despachado', 'Entregado'];
+    const nuevo = this.state.nuevo;
+    const on = 'background: #2F5D3A; color: #FFFFFF; border-color: #2F5D3A';
+    const opciones = flujo.map((nombre) => ({ nombre, estilo: nuevo === nombre ? on : '', elegir: () => this.setState({ nuevo: nombre }) }));
+    const guardar = () => {
+      if (!nuevo) return;
+      const e = est.slice(); e[s] = nuevo;
+      const h = this.state.hist.map((x) => x.slice()); h[s].push([nuevo, '[Administrador 1]']);
+      this.setState({ estados: e, hist: h, nuevo: null });
+    };
+    const historial = this.state.hist[s].slice().reverse().map(([estado, quien]) => ({ estado, quien }));
+    return {
+      pedidos, opciones, guardar, historial,
+      sel: { ...sel, bloqueado: est[s] === 'Pendiente de validación', editable: est[s] !== 'Pendiente de validación' }
+    };
+  }
+}
+</script>
+</body>
+</html>
+{% endverbatim %}

@@ -1,0 +1,122 @@
+{% load static %}{% verbatim %}<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Productos</title>
+{% endverbatim %}<script src="{% static 'js/support.js' %}"></script>{% verbatim %}
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'DM Sans',system-ui,sans-serif;color:#2E1A20;background:#FBF1F3}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;color:#6E1A2E;font-weight:600;letter-spacing:-0.01em}
+.logo{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',Georgia,serif;color:#6E1A2E;letter-spacing:-0.01em}
+.logoimg{display:block;height:44px;width:auto;background:#FFFFFF;border-radius:10px;padding:4px 8px;box-sizing:content-box}
+.img{display:block;width:100%;object-fit:cover}
+.navy{background-color:#0B1B33;background-image:linear-gradient(rgba(127,211,240,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(127,211,240,.07) 1px,transparent 1px);background-size:32px 32px}
+header{background:#7A1A33 !important;border-bottom:0 !important;color:#FFFFFF}
+header .logo{color:#FFFFFF}
+header .logo svg{background:#FFFFFF;border-radius:999px;padding:3px}
+header span{color:#FFE3E8 !important}
+header .logo span{color:#FFFFFF !important}
+header a{color:#FFFFFF !important}
+header a:hover{color:#FFE3E8 !important}
+.side a[style*="#F8E3E8"]{background:#2F5D3A !important;color:#FFFFFF !important}
+.side a:hover{background:#E6F2E8 !important}
+.side a[style*="#F8E3E8"]:hover{background:#234A2D !important}
+a{color:#7A1A33}a:hover{color:#5E1226}
+.side a{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:6px;color:#2E1A20;text-decoration:none;font-size:15px;font-weight:500}
+.side a:hover{background:#FBF1F3;color:#2E1A20}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 20px;background:#2F5D3A;color:#FFFFFF;border:0;border-radius:999px;font:600 15px 'DM Sans',sans-serif;text-decoration:none}
+.btn:hover{background:#234A2D;color:#FFFFFF}
+.inp{height:44px;border:1px solid #E2C6CD;border-radius:12px;padding:0 12px;font:15px 'DM Sans',sans-serif;color:#2E1A20;background:#FFFFFF;box-sizing:border-box}
+.card{background:#FFFFFF;border:1px solid #F0DCE1;border-radius:20px;padding:24px;box-sizing:border-box}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{text-align:left;font-weight:600;color:#76656A;font-size:13px;padding:10px 12px;border-bottom:1px solid #F0DCE1;white-space:nowrap}
+.tbl td{padding:12px;border-bottom:1px solid #F0DCE1;white-space:nowrap;vertical-align:middle}
+.ph{background:#FBF1F3;border:1px dashed #E2C6CD;display:flex;align-items:center;justify-content:center;color:#76656A;font-size:11px;box-sizing:border-box}
+.act{min-height:36px;padding:0 12px;border:1px solid #E2C6CD;border-radius:999px;background:#FFFFFF;font:600 13px 'DM Sans',sans-serif;color:#2E1A20;text-decoration:none;display:inline-flex;align-items:center}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #FBF1F3; font-family: 'DM Sans', system-ui, sans-serif; color: #2E1A20">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #F0DCE1">
+    <div style="padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center">
+      <div style="display: flex; align-items: baseline; gap: 12px"><span style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em"><img class="logoimg" src="{% endverbatim %}{% static 'img/logo.png' %}{% verbatim %}" alt="CranEnsenada · Cranberry 100% natural. Producto chileno."></span><span style="font-size: 13px; color: #76656A">Administración</span></div>
+      <div style="display: flex; align-items: center; gap: 16px; font-size: 14px"><span>[Nombre del administrador]</span><a href="{% endverbatim %}{% url 'panel_login' %}{% verbatim %}" style="min-height: 44px; display: flex; align-items: center; font-weight: 600">Cerrar sesión</a></div>
+    </div>
+  </header>
+  <div style="display: flex; flex-wrap: wrap">
+    <nav class="side" aria-label="Menú de administración" style="flex: 1 1 220px; max-width: 100%; background: #FFFFFF; border-right: 1px solid #F0DCE1; padding: 20px 12px; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px">
+      <a href="{% endverbatim %}{% url 'panel_dashboard' %}{% verbatim %}">Dashboard</a>
+      <a href="{% endverbatim %}{% url 'panel_pedidos' %}{% verbatim %}">Pedidos</a>
+      <a href="{% endverbatim %}{% url 'panel_pagos' %}{% verbatim %}">Pagos y facturas</a>
+      <a href="{% endverbatim %}{% url 'panel_productos' %}{% verbatim %}" style="background: #F8E3E8; color: #7A1A33; font-weight: 600">Productos</a>
+      <a href="{% endverbatim %}{% url 'panel_inventario' %}{% verbatim %}">Inventario</a>
+      <a href="{% endverbatim %}{% url 'panel_mermas' %}{% verbatim %}">Mermas y muestras</a>
+      <a href="{% endverbatim %}{% url 'panel_promociones' %}{% verbatim %}">Promociones</a>
+      <a href="{% endverbatim %}{% url 'panel_recetas' %}{% verbatim %}">Recetas</a>
+    </nav>
+
+    <main style="flex: 999 1 560px; min-width: 0; padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px">
+        <h1 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">Productos</h1>
+        <a class="btn" href="{% endverbatim %}{% url 'panel_producto_form' %}{% verbatim %}">+ Nuevo producto</a>
+      </div>
+
+      <section class="card" style="display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; flex-wrap: wrap; gap: 12px">
+          <input class="inp" type="search" aria-label="Buscar producto" placeholder="Buscar producto" style="flex: 1 1 260px">
+          <select class="inp" aria-label="Filtrar por estado" style="width: 180px"><option>Todos los estados</option><option>Visibles</option><option>Ocultos</option></select>
+        </div>
+        <div style="overflow-x: auto">
+          <table class="tbl">
+            <thead><tr><th>Foto</th><th>Producto</th><th>Precio</th><th>Stock</th><th>Elaborado</th><th>Vence</th><th>Estado</th><th style="text-align: right">Acciones</th></tr></thead>
+            <tbody>
+              <sc-for list="{{filas}}" as="f" hint-placeholder-count="5">
+                <tr>
+                  <td><sc-if value="{{f.foto}}" hint-placeholder-val="{{true}}"><img class="img" src="{{f.foto}}" alt="{{f.nombre}}" style="width: 48px; height: 48px; border-radius: 12px"></sc-if><sc-if value="{{f.sinFoto}}" hint-placeholder-val="{{false}}"><div class="ph" style="width: 48px; height: 48px; border-radius: 12px">Foto</div></sc-if></td>
+                  <td style="font-weight: 600">{{f.nombre}}<br><span style="font-size: 12px; font-weight: 500; color: #76656A">{{f.formato}}</span></td>
+                  <td>{{f.precio}}</td>
+                  <td>[N]</td>
+                  <td>[dd/mm/aaaa]</td>
+                  <td>[dd/mm/aaaa]</td>
+                  <td><span style="{{f.estiloEstado}}">{{f.estado}}</span></td>
+                  <td style="text-align: right"><span style="display: inline-flex; gap: 8px"><a class="act" href="{% endverbatim %}{% url 'panel_producto_form' %}{% verbatim %}">Editar</a><button class="act">{{f.accion}}</button></span></td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+        <div style="font-size: 13px; color: #76656A">Ocultar un producto lo saca del catálogo sin borrar su historial de ventas ni de inventario.</div>
+      </section>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const visible = 'font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: #E2EFE4; color: #2F5D3A';
+    const oculto = 'font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: #FBF1F3; color: #76656A';
+    const prods = [
+      { nombre: 'Mermelada de cranberry', precio: '$6.990', formato: 'Gourmet Premium · 460 g', linea: 'Gourmet Premium', foto: '{% endverbatim %}{% static 'img/mermelada.jpg' %}{% verbatim %}', sinFoto: false },
+      { nombre: 'Conserva de cranberry', precio: '$7.490', formato: 'Gourmet Premium · 460 g', linea: 'Gourmet Premium', foto: '{% endverbatim %}{% static 'img/conserva.jpg' %}{% verbatim %}', sinFoto: false },
+      { nombre: 'Pulpa de cranberry', precio: '$9.990', formato: 'IQF y Pulpa · 1 kg · sin azúcar añadida', linea: 'IQF y Pulpa', foto: '{% endverbatim %}{% static 'img/pulpa.jpg' %}{% verbatim %}', sinFoto: false },
+      { nombre: 'Cranberry IQF', precio: '$8.990', formato: 'IQF y Pulpa · 1 kg · fruta congelada', linea: 'IQF y Pulpa', foto: '', sinFoto: true },
+      { nombre: '100% jugo de cranberry', precio: '$4.990', formato: '1 L · sin azúcar añadida', linea: 'Jugos', foto: '{% endverbatim %}{% static 'img/jugo.jpg' %}{% verbatim %}', sinFoto: false }
+    ];
+    const filas = [true, true, true, true, true].map((v, i) => ({
+      ...prods[i],
+      estado: v ? 'Visible' : 'Oculto',
+      estiloEstado: v ? visible : oculto,
+      accion: v ? 'Ocultar' : 'Mostrar'
+    }));
+    return { filas };
+  }
+}
+</script>
+</body>
+</html>
+{% endverbatim %}

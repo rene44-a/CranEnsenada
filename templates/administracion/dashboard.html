@@ -1,0 +1,234 @@
+{% load static %}{% verbatim %}<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Dashboard de ventas</title>
+{% endverbatim %}<script src="{% static 'js/support.js' %}"></script>{% verbatim %}
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'DM Sans',system-ui,sans-serif;color:#2E1A20;background:#FBF1F3}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;color:#6E1A2E;font-weight:600;letter-spacing:-0.01em}
+.logo{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',Georgia,serif;color:#6E1A2E;letter-spacing:-0.01em}
+.logoimg{display:block;height:44px;width:auto;background:#FFFFFF;border-radius:10px;padding:4px 8px;box-sizing:content-box}
+.img{display:block;width:100%;object-fit:cover}
+.navy{background-color:#0B1B33;background-image:linear-gradient(rgba(127,211,240,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(127,211,240,.07) 1px,transparent 1px);background-size:32px 32px}
+header{background:#7A1A33 !important;border-bottom:0 !important;color:#FFFFFF}
+header .logo{color:#FFFFFF}
+header .logo svg{background:#FFFFFF;border-radius:999px;padding:3px}
+header span{color:#FFE3E8 !important}
+header .logo span{color:#FFFFFF !important}
+header a{color:#FFFFFF !important}
+header a:hover{color:#FFE3E8 !important}
+.side a[style*="#F8E3E8"]{background:#2F5D3A !important;color:#FFFFFF !important}
+.side a:hover{background:#E6F2E8 !important}
+.side a[style*="#F8E3E8"]:hover{background:#234A2D !important}
+a{color:#7A1A33}a:hover{color:#5E1226}
+.side a{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:6px;color:#2E1A20;text-decoration:none;font-size:15px;font-weight:500}
+.side a:hover{background:#FBF1F3;color:#2E1A20}
+.inp{height:44px;border:1px solid #E2C6CD;border-radius:12px;padding:0 12px;font:15px 'DM Sans',sans-serif;color:#2E1A20;background:#FFFFFF;box-sizing:border-box}
+.lbl{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:#2E1A20}
+.card{background:#FFFFFF;border:1px solid #F0DCE1;border-radius:20px;padding:24px;box-sizing:border-box}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{text-align:left;font-weight:600;color:#76656A;font-size:13px;padding:10px 12px;border-bottom:1px solid #F0DCE1;white-space:nowrap}
+.tbl td{padding:12px;border-bottom:1px solid #F0DCE1;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 20px;background:#2F5D3A;color:#FFFFFF;border:0;border-radius:999px;font:600 15px 'DM Sans',sans-serif;cursor:pointer}
+.btn:hover{background:#234A2D}
+.btn2{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;background:#FFFFFF;color:#2E1A20;border:1px solid #E2C6CD;border-radius:999px;font:600 14px 'DM Sans',sans-serif;cursor:pointer}
+.seg{min-height:38px;padding:0 16px;border:0;font:600 13px 'DM Sans',sans-serif;cursor:pointer}
+.chk{display:flex;gap:8px;align-items:center;min-height:40px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
+.chk input{width:18px;height:18px;accent-color:#7A1A33}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #FBF1F3; font-family: 'DM Sans', system-ui, sans-serif; color: #2E1A20">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #F0DCE1">
+    <div style="padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center">
+      <div style="display: flex; align-items: baseline; gap: 12px"><span style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em"><img class="logoimg" src="{% endverbatim %}{% static 'img/logo.png' %}{% verbatim %}" alt="CranEnsenada · Cranberry 100% natural. Producto chileno."></span><span style="font-size: 13px; color: #76656A">Administración</span></div>
+      <div style="display: flex; align-items: center; gap: 16px; font-size: 14px"><span>[Nombre del administrador]</span><a href="{% endverbatim %}{% url 'panel_login' %}{% verbatim %}" style="min-height: 44px; display: flex; align-items: center; font-weight: 600">Cerrar sesión</a></div>
+    </div>
+  </header>
+  <div style="display: flex; flex-wrap: wrap; width: 1267px">
+    <nav class="side" aria-label="Menú de administración" style="flex: 1 1 220px; max-width: 100%; background: #FFFFFF; border-right: 1px solid #F0DCE1; padding: 20px 12px; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px">
+      <a href="{% endverbatim %}{% url 'panel_dashboard' %}{% verbatim %}" style="background: #F8E3E8; color: #7A1A33; font-weight: 600">Dashboard</a>
+      <a href="{% endverbatim %}{% url 'panel_pedidos' %}{% verbatim %}">Pedidos</a>
+      <a href="{% endverbatim %}{% url 'panel_pagos' %}{% verbatim %}">Pagos y facturas</a>
+      <a href="{% endverbatim %}{% url 'panel_productos' %}{% verbatim %}">Productos</a>
+      <a href="{% endverbatim %}{% url 'panel_inventario' %}{% verbatim %}">Inventario</a>
+      <a href="{% endverbatim %}{% url 'panel_mermas' %}{% verbatim %}">Mermas y muestras</a>
+      <a href="{% endverbatim %}{% url 'panel_promociones' %}{% verbatim %}">Promociones</a>
+      <a href="{% endverbatim %}{% url 'panel_recetas' %}{% verbatim %}">Recetas</a>
+    </nav>
+
+    <main style="flex: 999 1 560px; min-width: 0; padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px">
+        <h1 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">Dashboard de ventas</h1>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
+          <button type="button" class="btn2" onClick="{{marcarTodos}}">{{textoMarcar}}</button>
+          <button type="button" class="btn" onClick="{{exportar}}">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px"><path d="M12 4v11M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>
+            Exportar PDF ({{seleccionados}})
+          </button>
+        </div>
+      </div>
+      <sc-if value="{{exportado}}" hint-placeholder-val="{{false}}">
+        <div role="status" style="background: #E2EFE4; color: #2F5D3A; border-radius: 18px; padding: 12px 16px; font-size: 14px; font-weight: 600">Se generó el PDF con {{seleccionados}} reportes · [reporte-ventas-dd-mm-aaaa.pdf]</div>
+      </sc-if>
+
+      <div class="card" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; padding: 18px 20px">
+        <label class="lbl">Período
+          <select class="inp" style="width: 170px"><option>Mensual</option><option>Quincenal</option><option>Semanal</option></select>
+        </label>
+        <label class="lbl">Desde<input class="inp" type="date" style="width: 160px"></label>
+        <label class="lbl">Hasta<input class="inp" type="date" style="width: 160px"></label>
+        <label class="lbl">Canal de venta
+          <select class="inp" style="width: 170px"><option>Todos</option><option>Tienda web</option><option>[Otro canal]</option></select>
+        </label>
+        <span style="font-size: 13px; color: #76656A; padding-bottom: 12px">Los filtros se aplican a todos los reportes y al PDF.</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+        <div class="card" style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; font-weight: 600; color: #76656A">Ventas del período</span><span style="font-size: 30px; font-weight: 700">[$ Monto]</span></div>
+        <div class="card" style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; font-weight: 600; color: #76656A">N° de ventas</span><span style="font-size: 30px; font-weight: 700">[N]</span></div>
+        <div class="card" style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; font-weight: 600; color: #76656A">Producto más vendido</span><span style="font-size: 20px; font-weight: 700">[Nombre del producto]</span><span style="font-size: 13px; color: #76656A">[N] unidades</span></div>
+      </div>
+
+      <h2 style="margin: 8px 0 0; font-size: 20px; font-weight: 700">Reportes</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(440px, 1fr)); gap: 16px">
+        <sc-for list="{{reportes}}" as="r" hint-placeholder-count="5">
+          <section class="card" style="display: flex; flex-direction: column; gap: 16px">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px">
+              <div style="display: flex; flex-direction: column; gap: 4px">
+                <h3 style="margin: 0; font-size: 17px; font-weight: 600">{{r.titulo}}</h3>
+                <span style="font-size: 12px; color: #76656A">{{r.desc}}</span>
+              </div>
+              <label class="chk"><input type="checkbox" checked="{{r.incluido}}" onChange="{{r.alternarIncluir}}">Incluir en PDF</label>
+            </div>
+            <div role="group" aria-label="Vista del reporte" style="display: flex; align-self: flex-start; border: 1px solid #E2C6CD; border-radius: 12px; overflow: hidden">
+              <button type="button" class="seg" style="{{r.estiloTabla}}" onClick="{{r.verTabla}}">Tabla</button>
+              <button type="button" class="seg" style="{{r.estiloGrafica}}" onClick="{{r.verGrafica}}">Ver gráfica</button>
+            </div>
+
+            <sc-if value="{{r.enTabla}}" hint-placeholder-val="{{true}}">
+              <table class="tbl">
+                <thead><tr><th>{{r.col1}}</th><th style="text-align: right">{{r.col2}}</th></tr></thead>
+                <tbody>
+                  <sc-for list="{{r.filas}}" as="f" hint-placeholder-count="5">
+                    <tr><td>{{f.label}}</td><td style="text-align: right; font-weight: 600">{{f.valor}}</td></tr>
+                  </sc-for>
+                </tbody>
+              </table>
+            </sc-if>
+
+            <sc-if value="{{r.graficaH}}" hint-placeholder-val="{{false}}">
+              <div style="display: flex; flex-direction: column; gap: 12px; padding: 6px 0">
+                <sc-for list="{{r.filas}}" as="f" hint-placeholder-count="5">
+                  <div style="display: flex; align-items: center; gap: 12px; font-size: 13px">
+                    <span style="width: 130px; flex: none">{{f.label}}</span>
+                    <div style="flex: 1; height: 14px; background: #EEF5EF; border-radius: 4px"><div style="{{f.barraH}}"></div></div>
+                    <span style="width: 80px; text-align: right; font-weight: 600">{{f.valor}}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{r.graficaV}}" hint-placeholder-val="{{false}}">
+              <div style="display: flex; flex-direction: column; gap: 8px">
+                <div style="height: 200px; display: flex; align-items: flex-end; gap: 8px; border-bottom: 1px solid #E2C6CD; padding: 0 2px">
+                  <sc-for list="{{r.filas}}" as="f" hint-placeholder-count="6">
+                    <div style="{{f.barraV}}" title="{{f.valor}}"></div>
+                  </sc-for>
+                </div>
+                <div style="display: flex; gap: 8px; padding: 0 2px">
+                  <sc-for list="{{r.filas}}" as="f" hint-placeholder-count="6">
+                    <span style="flex: 1; text-align: center; font-size: 11px; color: #76656A; overflow: hidden; white-space: nowrap; text-overflow: ellipsis">{{f.corto}}</span>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-if>
+
+            <div style="font-size: 12px; color: #76656A; border-top: 1px solid #F0DCE1; padding-top: 10px">{{r.req}} · Valores de ejemplo para el wireframe</div>
+          </section>
+        </sc-for>
+      </div>
+
+      <section class="card" style="display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap"><h2 style="margin: 0; font-size: 17px; font-weight: 600">Últimas ventas confirmadas</h2><a href="{% endverbatim %}{% url 'panel_pedidos' %}{% verbatim %}" style="font-size: 14px; font-weight: 600; text-decoration: none">Ver todos los pedidos →</a></div>
+        <div style="overflow-x: auto">
+          <table class="tbl">
+            <thead><tr><th>Fecha</th><th>N° pedido</th><th>Productos</th><th>Canal</th><th>Método de pago</th><th>Factura</th><th style="text-align: right">Monto</th></tr></thead>
+            <tbody>
+              <sc-for list="{{ventas}}" as="v" hint-placeholder-count="4">
+                <tr><td>[dd/mm/aaaa]</td><td>[000123]</td><td>[Producto] ×[N]</td><td>Tienda web</td><td>[Método]</td><td>{{v.factura}}</td><td style="text-align: right; font-weight: 600">[$ Monto]</td></tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":2300}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { incluir: [true, true, true, true, true], grafica: [false, true, false, true, true], exportado: false };
+  }
+  renderVals() {
+    const inc = this.state.incluir, gr = this.state.grafica;
+    const setArr = (k, i) => { const n = this.state[k].slice(); n[i] = !n[i]; this.setState({ [k]: n, exportado: false }); };
+    const setVista = (i, v) => { const n = gr.slice(); n[i] = v; this.setState({ grafica: n }); };
+    const on = 'background: #2E1A20; color: #FFFFFF';
+    const off = 'background: #FFFFFF; color: #2E1A20';
+    const mk = (labels, pcts, valor, cortos) => labels.map((l, i) => ({
+      label: l,
+      corto: cortos ? cortos[i] : l,
+      valor: valor(i),
+      barraH: 'width: ' + pcts[i] + '%; height: 14px; border-radius: 4px; background: ' + (i === 0 ? '#2F5D3A' : '#9EC3A6'),
+      barraV: 'flex: 1; height: ' + pcts[i] + '%; border-radius: 4px 4px 0 0; background: ' + (i === pcts.length - 1 ? '#2F5D3A' : '#B9D6BF')
+    }));
+    const meses = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+    const base = [
+      { titulo: 'Producto más vendido', desc: 'Ranking por unidades vendidas en el período', req: 'RF27 · RF31', col1: 'Producto', col2: 'Unidades', tipo: 'h',
+        filas: mk(['[Producto 1]', '[Producto 2]', '[Producto 3]', '[Producto 4]', '[Producto 5]'], [100, 78, 60, 44, 30], () => '[N] u.') },
+      { titulo: 'Venta total', desc: 'Monto total vendido y su desglose por semana', req: 'RF26 · RF31', col1: 'Semana', col2: 'Monto', tipo: 'v',
+        filas: mk(['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4', 'Total del período'], [55, 70, 62, 84, 100], () => '[$ Monto]', ['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4', 'Total']) },
+      { titulo: 'Venta por períodos', desc: 'Comparación entre períodos según el filtro (semanal, quincenal o mensual)', req: 'RF29 · RF31', col1: 'Período', col2: 'Monto', tipo: 'v',
+        filas: mk(['[Período 1]', '[Período 2]', '[Período 3]', '[Período 4]', '[Período 5]', '[Período 6]'], [48, 62, 55, 70, 66, 88], () => '[$ Monto]', ['P1', 'P2', 'P3', 'P4', 'P5', 'P6']) },
+      { titulo: 'Origen de las ventas', desc: 'Distribución de ventas por medio de pago y canal (web o ingreso manual)', req: 'RF28 · RF31', col1: 'Medio de pago', col2: '% de ventas', tipo: 'h',
+        filas: mk(['Tarjeta (web)', 'Transferencia (web)', 'Transferencia (manual)', 'Venta con factura (manual)'], [100, 55, 25, 15], () => '[%]') },
+      { titulo: 'Comportamiento de venta por mes', desc: 'Evolución mensual de las ventas del año', req: 'RF29 · RF31', col1: 'Mes', col2: 'Monto', tipo: 'v',
+        filas: mk(meses, [40, 45, 52, 48, 60, 58, 66, 72, 70, 80, 86, 95], () => '[$ Monto]') }
+    ];
+    const reportes = base.map((r, i) => ({
+      ...r,
+      incluido: inc[i],
+      alternarIncluir: () => setArr('incluir', i),
+      enTabla: !gr[i],
+      graficaH: gr[i] && r.tipo === 'h',
+      graficaV: gr[i] && r.tipo === 'v',
+      estiloTabla: gr[i] ? off : on,
+      estiloGrafica: gr[i] ? on : off,
+      verTabla: () => setVista(i, false),
+      verGrafica: () => setVista(i, true)
+    }));
+    const n = inc.filter(Boolean).length;
+    const todos = n === inc.length;
+    return {
+      reportes,
+      seleccionados: n,
+      exportado: this.state.exportado,
+      exportar: () => this.setState({ exportado: true }),
+      textoMarcar: todos ? 'Quitar todos' : 'Seleccionar todos',
+      marcarTodos: () => this.setState({ incluir: inc.map(() => !todos), exportado: false }),
+      ventas: [{ factura: 'No' }, { factura: 'Sí' }, { factura: 'No' }, { factura: 'No' }]
+    };
+  }
+}
+</script>
+</body>
+</html>
+{% endverbatim %}

@@ -1,0 +1,384 @@
+{% load static %}{% verbatim %}<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Inicio</title>
+{% endverbatim %}<script src="{% static 'js/support.js' %}"></script>{% verbatim %}
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'DM Sans',system-ui,sans-serif;color:#2E1A20;background:#FFFFFF}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;color:#6E1A2E;font-weight:600;letter-spacing:-0.01em}
+.logo{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',Georgia,serif;color:#6E1A2E;letter-spacing:-0.01em}
+.logoimg{display:block;height:44px;width:auto;background:#FFFFFF;border-radius:10px;padding:4px 8px;box-sizing:content-box}
+.img{display:block;width:100%;object-fit:cover}
+.chipb{min-height:40px;padding:0 16px;border-radius:999px;font:500 14px 'DM Sans',sans-serif;cursor:pointer}
+.markb{position:absolute;width:44px;height:44px;border:0;background:transparent;border-radius:999px;cursor:pointer;padding:0}
+.markb:hover{background:rgba(127,211,240,.12)}
+.cuerpo{filter:drop-shadow(0 0 6px rgba(127,211,240,.55))}
+.berry{position:fixed;z-index:60;width:28px;height:28px;pointer-events:none;transition:left .8s cubic-bezier(.3,0,.7,1),top .8s cubic-bezier(.4,-0.7,.75,1),transform .8s ease-in,opacity .8s ease-in}
+header a[aria-label^="Carrito"] span{transition:transform .18s ease-out}
+.pulso{transform:scale(1.45)}
+.navy{background-color:#0B1B33;background-image:linear-gradient(rgba(127,211,240,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(127,211,240,.07) 1px,transparent 1px);background-size:32px 32px}
+header{background:#7A1A33 !important;border-bottom:0 !important;color:#FFFFFF}
+header .logo{color:#FFFFFF}
+header .logo svg{background:#FFFFFF;border-radius:999px;padding:3px}
+header a{color:#FFFFFF}
+header .nav a{color:#FFE3E8 !important}
+header .nav a:hover{color:#FFFFFF !important}
+header .nav a[style*="#7A1A33"]{color:#FFFFFF !important;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+header li{color:rgba(255,255,255,.72) !important}
+header li[style*="#7A1A33"]{color:#FFFFFF !important;text-decoration:underline;text-underline-offset:6px}
+header a[aria-label^="Carrito"]{color:#7A1A33 !important;border-color:#FFFFFF !important}
+header .ib{color:#FFFFFF}
+header a[aria-label^="Carrito"] span{background:#2F5D3A !important}
+footer{background:#7A1A33;border-top:0 !important;margin-top:80px}
+footer,footer span,footer a{color:#FFE3E8 !important}
+footer a:hover{color:#FFFFFF !important}
+a{color:#7A1A33}a:hover{color:#5E1226}
+.nav a{color:#2E1A20;text-decoration:none;font-size:15px;font-weight:500}
+.nav a:hover{color:#7A1A33}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 24px;background:#2F5D3A;color:#FFFFFF;border:0;border-radius:999px;font:600 15px 'DM Sans',sans-serif;text-decoration:none}
+.btn:hover{background:#234A2D;color:#FFFFFF}
+.btn2{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;background:#FFFFFF;color:#2E1A20;border:1px solid #E2C6CD;border-radius:999px;font:600 15px 'DM Sans',sans-serif;text-decoration:none}
+.btn2:hover{border-color:#2E1A20;color:#2E1A20}
+.ph{background:#FBF1F3;border:1px dashed #E2C6CD;display:flex;align-items:center;justify-content:center;color:#76656A;font-size:13px;text-align:center;box-sizing:border-box}
+.round{width:44px;height:44px;border-radius:999px;border:1px solid #E2C6CD;background:#FFFFFF;display:flex;align-items:center;justify-content:center;color:#2E1A20;cursor:pointer;padding:0}
+.round:hover{border-color:#2E1A20}
+.dot{width:24px;height:24px;border:0;background:none;padding:0;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.chip{min-height:40px;padding:0 16px;border-radius:999px;font:600 14px 'DM Sans',sans-serif;cursor:pointer}
+.mark{position:absolute;width:44px;height:44px;border:0;background:none;padding:0;display:flex;align-items:center;justify-content:center;cursor:pointer}
+</style>
+</helmet>
+<div style="font-family: 'DM Sans', system-ui, sans-serif; color: #2E1A20; background: #FCF5F6">
+
+<sc-if value="{{hayVuelo}}" hint-placeholder-val="{{false}}"><span class="berry" aria-hidden="true" style="{{estiloVuelo}}"><svg width="28" height="28" viewBox="0 0 28 28"><defs><radialGradient id="berryGrad" cx="35%" cy="30%" r="72%"><stop offset="0" stop-color="#EC6A82"></stop><stop offset="0.55" stop-color="#B3173B"></stop><stop offset="1" stop-color="#6E0F25"></stop></radialGradient></defs><circle cx="14" cy="15" r="12" fill="url(#berryGrad)"></circle><ellipse cx="9.5" cy="10" rx="3.4" ry="2.2" fill="#FFFFFF" opacity="0.55"></ellipse><path d="M14 2.5 15.3 4.6 17.6 4 16.6 6.1 18.4 7.4 16.1 7.6 14 9.4 11.9 7.6 9.6 7.4 11.4 6.1 10.4 4 12.7 4.6Z" fill="#3E7A4A"></path></svg></span></sc-if>
+    <header style="border-bottom: 1px solid #F0DCE1; background: #FFFFFF">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+      <a href="{% endverbatim %}{% url 'inicio' %}{% verbatim %}" style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: #2E1A20; text-decoration: none"><img class="logoimg" src="{% endverbatim %}{% static 'img/logo.png' %}{% verbatim %}" alt="CranEnsenada · Cranberry 100% natural. Producto chileno."></a>
+      <nav class="nav" style="display: flex; flex-wrap: wrap; gap: 28px; align-items: center">
+        <a href="{% endverbatim %}{% url 'inicio' %}{% verbatim %}" style="color: #7A1A33">Inicio</a>
+        <a href="{% endverbatim %}{% url 'catalogo' %}{% verbatim %}">Tienda</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="{% endverbatim %}{% url 'recetas' %}{% verbatim %}">Recetas</a>
+      </nav>
+      <a href="{% endverbatim %}{% url 'carrito' %}{% verbatim %}" ref="{{carritoRef}}" aria-label="Carrito, {{enCarrito}} productos" style="position: relative; width: 44px; height: 44px; border: 1px solid #F0DCE1; border-radius: 999px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; color: #2E1A20">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12z"></path><path d="M6 6 5 3H2"></path><circle cx="9" cy="20" r="1.4"></circle><circle cx="18" cy="20" r="1.4"></circle></svg>
+        <span style="position: absolute; top: 4px; right: 2px; min-width: 18px; height: 18px; border-radius: 999px; background: #7A1A33; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center" class="{{claseBadge}}">{{enCarrito}}</span>
+      </a>
+    </div>
+  </header>
+
+  <section style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 56px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
+    <div style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 22px">
+      <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #76656A">Cranberry 100% natural · Producto chileno</div>
+      <h1 style="margin: 0; font-size: 50px; line-height: 1.08; font-weight: 700; letter-spacing: -0.03em">La cosecha de cranberry más austral de Chile</h1>
+      <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #76656A; max-width: 470px">Conservas y mermeladas de cranberry elaboradas artesanalmente en los campos de la Región de Los Lagos. Sin preservantes. 100% natural.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px">
+        <a class="btn" href="#frascos">Ver productos</a>
+        <a class="btn2" href="#beneficios">Ver beneficios</a>
+      </div>
+    </div>
+    <img class="img" src="{% endverbatim %}{% static 'img/conserva_abierta.jpg' %}{% verbatim %}" alt="Frasco abierto de conserva de cranberry junto a una tabla de quesos" style="flex: 0 1 440px; width: 440px; max-width: 100%; height: 440px; border-radius: 50%; object-position: 50% 60%">
+  </section>
+
+  <section id="frascos" aria-labelledby="t-frascos" style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 0; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h2 id="t-frascos" style="margin: 0; font-size: 28px; font-weight: 700">Nuestros productos</h2>
+        <div style="font-size: 15px; color: #76656A">Línea Gourmet Premium para tu mesa y línea IQF y Pulpa para preparar.</div>
+      </div>
+      <a href="{% endverbatim %}{% url 'catalogo' %}{% verbatim %}" style="font-size: 15px; font-weight: 600; text-decoration: none">Ver todo el catálogo</a>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 24px">
+      <sc-for list="{{frascos}}" as="f" hint-placeholder-count="4">
+        <div style="display: flex; flex-direction: column; gap: 12px; border: 1px solid #F0DCE1; border-radius: 22px; padding: 20px; background: #FFFFFF">
+          <a href="{% endverbatim %}{% url 'producto' %}{% verbatim %}" style="position: relative; display: block; text-decoration: none; color: #2E1A20">
+            <sc-if value="{{f.foto}}" hint-placeholder-val="{{true}}"><img class="img" src="{{f.foto}}" alt="{{f.nombre}}" style="aspect-ratio: 4 / 3; border-radius: 12px; object-position: 50% 45%"></sc-if><sc-if value="{{f.sinFoto}}" hint-placeholder-val="{{false}}"><div class="ph" style="aspect-ratio: 4 / 3; border-radius: 12px; object-position: 50% 45%">Foto pendiente</div></sc-if>
+            <sc-if value="{{f.etiqueta}}" hint-placeholder-val="{{false}}">
+              <span style="position: absolute; top: 12px; left: 12px; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: #E2EFE4; color: #2F5D3A">{{f.etiqueta}}</span>
+            </sc-if>
+          </a>
+          <div style="font-size: 18px; font-weight: 700">{{f.nombre}}</div>
+          <div style="font-size: 14px; line-height: 1.5; color: #76656A">{{f.desc}}</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 4px"><span style="font-size: 18px; font-weight: 700; color: rgb(122, 26, 51)">{{f.precio}}</span>
+            <button type="button" class="btn" onClick="{{f.agregar}}">Agregar</button>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-lineas" style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 0; display: flex; flex-direction: column; gap: 24px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <h2 id="t-lineas" style="margin: 0; font-size: 28px; font-weight: 700">Dos líneas para 2026</h2>
+      <div style="font-size: 15px; color: #76656A">Cuidamos el sabor, la presentación y la calidad de cada ingrediente.</div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px">
+      <div style="display: flex; gap: 20px; align-items: center; border: 1px solid #F0DCE1; border-radius: 22px; padding: 20px; background: #FFFFFF">
+        <img class="img" src="{% endverbatim %}{% static 'img/mermelada.jpg' %}{% verbatim %}" alt="Mermelada de cranberry Gourmet Premium" style="width: 120px; height: 150px; border-radius: 14px; flex: none">
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="align-self: flex-start; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: #F8E3E8; color: #7A1A33">Para tu mesa</span>
+          <h3 style="margin: 0; font-size: 20px">Gourmet Premium · 460 g</h3>
+          <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #76656A">Mermelada y conserva para meriendas dulces y saladas, brunch y desayunos, platos fríos y calientes, o para vender en vitrina.</p>
+        </div>
+      </div>
+      <div style="display: flex; gap: 20px; align-items: center; border: 1px solid #F0DCE1; border-radius: 22px; padding: 20px; background: #FFFFFF">
+        <img class="img" src="{% endverbatim %}{% static 'img/pulpa.jpg' %}{% verbatim %}" alt="Pulpa de cranberry de 1 kilo" style="width: 120px; height: 150px; border-radius: 14px; flex: none">
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="align-self: flex-start; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: #E2EFE4; color: #2F5D3A">Para tu negocio</span>
+          <h3 style="margin: 0; font-size: 20px">IQF y Pulpa · 1 kg</h3>
+          <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #76656A">Para helados, jugos y repostería en pastelerías, cafeterías, bares de autor, restoranes y hoteles.</p>
+          <a href="https://wa.me/56974103575" style="font-size: 14px; font-weight: 600; text-decoration: none">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+    </div>
+  </section><section style="margin-top: 72px; border-top: 1px solid #F0DCE1; border-bottom: 1px solid #F0DCE1">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 22px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 14px; font-weight: 500">
+      <span>Compra sin crear una cuenta</span>
+      <span>Pago en línea seguro</span>
+      <span>Despacho a todo Chile</span>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-disfruta" style="max-width: 1152px; width: calc(100% - 48px); margin: 72px auto 0; padding: 40px; box-sizing: border-box; border-radius: 28px; background: #2F5D3A; color: #FFFFFF; display: flex; flex-direction: column; gap: 24px">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h2 id="t-disfruta" style="margin: 0; color: #FFFFFF; font-size: 28px; font-weight: 700">Cómo disfrutarla</h2>
+        <div style="font-size: 15px; color: #D3E6D7">Ideas para cada momento del día.</div>
+      </div>
+      <div style="display: flex; gap: 8px">
+        <button class="round" aria-label="Anterior" onClick="{{anterior}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg></button>
+        <button class="round" aria-label="Siguiente" onClick="{{siguiente}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></button>
+      </div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: center">
+      <sc-if value="{{slide.foto}}" hint-placeholder-val="{{true}}"><img class="img" src="{{slide.foto}}" alt="{{slide.alt}}" style="flex: 3 1 480px; width: 480px; max-width: 100%; height: 360px; border-radius: 18px"></sc-if><sc-if value="{{slide.sinFoto}}" hint-placeholder-val="{{false}}"><div class="ph" style="flex: 3 1 480px; height: 360px; border-radius: 18px; background: #3B6E48; border-color: #6F9A79; color: #DCEBDF">Foto pendiente</div></sc-if>
+      <div style="flex: 2 1 280px; display: flex; flex-direction: column; gap: 12px">
+        <div style="font-size: 13px; font-weight: 600; color: #D3E6D7">{{slide.numero}}</div>
+        <div style="font-size: 26px; font-weight: 700">{{slide.titulo}}</div>
+        <div style="font-size: 16px; line-height: 1.6; color: #D3E6D7">{{slide.texto}}</div>
+        <a href="{% endverbatim %}{% url 'recetas' %}{% verbatim %}" style="font-size: 15px; font-weight: 600; text-decoration: none; color: #FFFFFF">Ver recetas →</a>
+      </div>
+    </div>
+    <div style="display: flex; gap: 4px; justify-content: center">
+      <sc-for list="{{puntos}}" as="d" hint-placeholder-count="6">
+        <button class="dot" aria-label="{{d.label}}" onClick="{{d.ir}}"><span style="{{d.estilo}}"></span></button>
+      </sc-for>
+    </div>
+  </section>
+
+  
+
+  
+
+  <section style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 0; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
+      <h2 style="margin: 0; font-size: 28px; font-weight: 700">Recetas</h2>
+      <a href="{% endverbatim %}{% url 'recetas' %}{% verbatim %}" style="font-size: 15px; font-weight: 600; text-decoration: none">Ver todas</a>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px">
+      <sc-for list="{{recetas}}" as="r" hint-placeholder-count="3">
+        <a href="{% endverbatim %}{% url 'recetas' %}{% verbatim %}" style="display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: #2E1A20">
+          <img class="img" src="{{r.foto}}" alt="{{r.nombre}}" style="height: 200px; border-radius: 18px">
+          <div style="font-size: 16px; font-weight: 600">{{r.nombre}}</div>
+          <div style="font-size: 13px; color: #76656A">[Tiempo] · Usa: {{r.usa}}</div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="beneficios" aria-labelledby="t-benef" class="navy" style="margin-top: 80px; color: #E6F4FB">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 28px">
+      <div style="display: flex; flex-direction: column; gap: 10px; max-width: 640px">
+        <h2 id="t-benef" style="margin: 0; color: #FFFFFF; font-size: 44px; line-height: 1.12; font-weight: 700">Lo que el cranberry hace por ti</h2>
+        <div style="font-size: 16px; color: #A9C4D6">Toca una parte del cuerpo para ver dónde actúa cada propiedad.</div>
+      </div>
+
+      <div role="group" aria-label="Partes del cuerpo" style="display: flex; flex-wrap: wrap; gap: 8px">
+        <sc-for list="{{partes}}" as="p" hint-placeholder-count="6">
+          <button type="button" class="chipb" style="{{p.estiloChip}}" onClick="{{p.elegir}}">{{p.parte}}</button>
+        </sc-for>
+      </div>
+
+      <div style="overflow-x: auto">
+        <div style="position: relative; width: 1100px; height: 660px">
+          <svg width="1100" height="660" viewBox="0 0 1100 660" fill="none" aria-hidden="true" style="position: absolute; inset: 0">
+            <defs>
+              <linearGradient id="cuerpoRelleno" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#7FD3F0" stop-opacity="0.10"></stop>
+                <stop offset="0.42" stop-color="#7FD3F0" stop-opacity="0.16"></stop>
+                <stop offset="0.56" stop-color="#7FD3F0" stop-opacity="0.34"></stop>
+                <stop offset="0.68" stop-color="#7FD3F0" stop-opacity="0.12"></stop>
+                <stop offset="1" stop-color="#7FD3F0" stop-opacity="0.06"></stop>
+              </linearGradient>
+            </defs>
+            <g transform="translate(130 20)" class="cuerpo">
+              <ellipse cx="120" cy="56" rx="40" ry="46" fill="url(#cuerpoRelleno)" stroke="#7FD3F0" stroke-width="2"></ellipse>
+              <rect x="105" y="100" width="30" height="24" rx="7" fill="url(#cuerpoRelleno)" stroke="#7FD3F0" stroke-width="2"></rect>
+              <path d="M104 122 Q62 126 54 156 L36 340 Q34 356 48 356 L56 356 Q64 356 64 344 L74 206 L76 336 L82 372 L84 604 Q84 616 98 616 L110 616 Q118 616 118 604 L118 390 L122 390 L122 604 Q122 616 130 616 L142 616 Q156 616 156 604 L158 372 L164 336 L166 206 L176 344 Q176 356 184 356 L192 356 Q206 356 204 340 L186 156 Q178 126 136 122 Z" fill="url(#cuerpoRelleno)" stroke="#7FD3F0" stroke-width="2" stroke-linejoin="round"></path>
+              <path d="M120 128 V 340" stroke="#7FD3F0" stroke-opacity="0.55" stroke-width="1.4" stroke-dasharray="3 5"></path>
+              <path d="M88 168 Q120 154 152 168 M86 182 Q120 168 154 182 M88 196 Q120 184 152 196 M92 210 Q120 200 148 210" stroke="#7FD3F0" stroke-opacity="0.45" stroke-width="1.4"></path>
+              <path d="M100 400 V 596 M140 400 V 596" stroke="#7FD3F0" stroke-opacity="0.35" stroke-width="1.2"></path>
+              <path d="M96 30 Q120 20 144 30 Q154 56 144 80 Q120 88 96 80 Q86 56 96 30 Z" fill="{{org.cerebro}}" stroke="#7FD3F0" stroke-width="1.6"></path>
+              <path d="M120 26 V 84 M108 46 Q102 54 108 62 M132 46 Q138 54 132 62" stroke="#7FD3F0" stroke-opacity="0.8" stroke-width="1.2"></path>
+              <ellipse cx="120" cy="92" rx="13" ry="5" fill="{{org.boca}}" stroke="#7FD3F0" stroke-width="1.6"></ellipse>
+              <path d="M120 206 C 104 192 96 182 104 174 C 110 168 118 170 120 177 C 122 170 130 168 136 174 C 144 182 136 192 120 206 Z" fill="{{org.corazon}}" stroke="#7FD3F0" stroke-width="1.6" stroke-linejoin="round"></path>
+              <path d="M126 226 C 140 226 144 244 134 256 C 126 266 108 266 104 256 C 112 254 118 248 116 240 C 114 232 118 226 126 226 Z" fill="{{org.estomago}}" stroke="#7FD3F0" stroke-width="1.6" stroke-linejoin="round"></path>
+              <path d="M100 276 C 90 276 88 300 98 304 C 104 306 106 298 102 292 C 100 288 104 280 100 276 Z M140 276 C 150 276 152 300 142 304 C 136 306 134 298 138 292 C 140 288 136 280 140 276 Z" fill="{{org.vias}}" stroke="#7FD3F0" stroke-width="1.6" stroke-linejoin="round"></path>
+              <ellipse cx="120" cy="326" rx="16" ry="11" fill="{{org.vias}}" stroke="#7FD3F0" stroke-width="1.6"></ellipse>
+              <circle cx="186" cy="276" r="6" fill="{{org.defensas}}" stroke="#7FD3F0" stroke-width="1.6"></circle>
+            </g>
+            <path d="{{linea}}" stroke="#BFEAFA" stroke-width="1.4" fill="none"></path>
+            <circle cx="{{origen.x}}" cy="{{origen.y}}" r="3.5" fill="#FFFFFF"></circle>
+            <circle cx="640" cy="330" r="3.5" fill="#FFFFFF"></circle>
+          </svg>
+          <sc-for list="{{marcas}}" as="m" hint-placeholder-count="6">
+            <button type="button" class="markb" aria-label="{{m.parte}}" style="{{m.posicion}}" onClick="{{m.elegir}}"></button>
+          </sc-for>
+
+          <div style="position: absolute; left: 640px; top: 210px; width: 440px; box-sizing: border-box; background: rgba(14, 35, 64, 0.92); border: 1px solid rgba(127, 211, 240, 0.35); border-radius: 18px; padding: 28px 30px; box-shadow: 0 0 48px rgba(127, 211, 240, 0.10); display: flex; flex-direction: column; gap: 14px">
+            <span style="align-self: flex-start; font-size: 12px; font-weight: 600; padding: 5px 11px; border-radius: 999px; background: #1E3A5F; color: #CFEFFF">{{actual.compuesto}}</span>
+            <div style="font-family: 'Fraunces', Georgia, serif; font-size: 30px; line-height: 1.15; font-weight: 600; color: #FFFFFF">{{actual.titulo}}</div>
+            <div style="font-size: 16px; line-height: 1.65; color: #C9DCEB">{{actual.texto}}</div>
+            <div style="display: flex; align-items: center; gap: 12px; margin-top: 6px">
+              <button type="button" class="round" aria-label="Propiedad anterior" onClick="{{parteAnterior}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg></button>
+              <span style="font-size: 14px; color: #A9C4D6">{{contador}}</span>
+              <button type="button" class="round" aria-label="Propiedad siguiente" onClick="{{parteSiguiente}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size: 12px; line-height: 1.6; color: #A9C4D6; max-width: 760px">Las propiedades corresponden al fruto del cranberry. Información referencial que no reemplaza la indicación de un profesional de la salud.</div>
+    </div>
+  </section><footer style="border-top: 1px solid #F0DCE1; margin-top: 80px">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 32px 24px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: center; font-size: 14px; color: #76656A">
+      <span>© CranEnsenada · Sociedad Forestal y Agrícola Ensenada Ltda. · +56 9 7410 3575 · +56 9 6109 2111</span>
+      <div style="display: flex; gap: 8px; align-items: center">
+        <a href="#privacidad" style="color: #76656A; margin-right: 12px">Aviso de privacidad</a>
+        <a href="https://www.instagram.com/cranensenada" aria-label="Instagram @cranensenada" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #2E1A20"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8"></circle></svg></a>
+        <a href="#facebook" aria-label="Facebook" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #2E1A20"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M15 3h-2a4 4 0 0 0-4 4v3H7v3h2v8h3v-8h2.5l.5-3h-3V7a1 1 0 0 1 1-1h2z"></path></svg></a>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":3560}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.carritoRef = { current: null }; this.state = { vuelo: null, enCarrito: 2, pulso: false, slide: 0, parte: 2 }; }
+  volar(e, n) {
+    const btn = e && e.currentTarget;
+    if (!btn || this.state.vuelo) return;
+    const doc = btn.ownerDocument;
+    const cart = (this.carritoRef && this.carritoRef.current) || doc.querySelector('a[aria-label^="Carrito"]');
+    const b = btn.getBoundingClientRect();
+    const c = cart ? cart.getBoundingClientRect() : { left: doc.documentElement.clientWidth - 60, top: 20, width: 44, height: 44 };
+    const ini = { x: b.left + b.width / 2 - 14, y: b.top + b.height / 2 - 14, fase: 0 };
+    const fin = { x: c.left + c.width / 2 - 14, y: c.top + c.height / 2 - 14, fase: 1 };
+    this.setState({ vuelo: ini });
+    const raf = (doc.defaultView && doc.defaultView.requestAnimationFrame) || ((f) => setTimeout(f, 16));
+    raf(() => raf(() => this.setState({ vuelo: fin })));
+    setTimeout(() => this.setState({ vuelo: null, enCarrito: this.state.enCarrito + n, pulso: true }), 820);
+    setTimeout(() => this.setState({ pulso: false }), 1040);
+  }
+  carro(n) {
+    const v = this.state.vuelo;
+    return {
+      hayVuelo: !!v,
+      estiloVuelo: v ? ('left: ' + v.x + 'px; top: ' + v.y + 'px; ' + (v.fase ? 'transform: scale(0.45); opacity: 0.85' : 'transform: scale(1); opacity: 1')) : '',
+      enCarrito: this.state.enCarrito,
+      claseBadge: this.state.pulso ? 'pulso' : '',
+      carritoRef: this.carritoRef,
+      agregar: (e) => this.volar(e, n)
+    };
+  }
+  renderVals() {
+    const v = this.valores();
+    const c = this.carro(this.cantidadAgregar ? this.cantidadAgregar() : 1);
+    ['frascos', 'productos'].forEach((k) => { if (Array.isArray(v[k])) v[k] = v[k].map((x) => ({ ...x, agregar: c.agregar })); });
+    return { ...v, ...c };
+  }
+  valores() {
+    const slides = [
+      { titulo: 'Tablas de queso', texto: 'Su sabor agridulce combina con quesos maduros, frutos secos y galletas.', foto: '{% endverbatim %}{% static 'img/conserva_abierta.jpg' %}{% verbatim %}', alt: 'Conserva de cranberry junto a una tabla de quesos' },
+      { titulo: 'Brunch y desayunos', texto: 'Sobre pan tostado con queso fresco, o con granola y yogur.', foto: '{% endverbatim %}{% static 'img/receta_crostini.jpg' %}{% verbatim %}', alt: 'Crostinis con mermelada de cranberry y queso' },
+      { titulo: 'Repostería', texto: 'En muffins, queques y rellenos, con pulpa o fruta IQF.', foto: '{% endverbatim %}{% static 'img/receta_muffins.jpg' %}{% verbatim %}', alt: 'Muffins de cranberry y naranja' },
+      { titulo: 'Pastelería', texto: 'Para tortas invertidas, tartaletas y coberturas.', foto: '{% endverbatim %}{% static 'img/receta_queque.jpg' %}{% verbatim %}', alt: 'Queque invertido de cranberry' },
+      { titulo: 'Carnes blancas', texto: 'Como salsa para pollo, pavo o cerdo, en platos fríos y calientes.', foto: '', sinFoto: true, alt: '' },
+      { titulo: 'Coctelería', texto: 'Jugo y pulpa para tragos de autor, jugos y agua con gas.', foto: '{% endverbatim %}{% static 'img/jugo.jpg' %}{% verbatim %}', alt: 'Botella de 100% jugo de cranberry' }
+    ].map((x) => ({ sinFoto: false, ...x }));
+    const n = slides.length;
+    const s = this.state.slide;
+    const slide = { ...slides[s], numero: (s + 1) + ' de ' + n };
+    const puntos = slides.map((x, i) => ({
+      label: 'Ir a ' + x.titulo,
+      estilo: i === s
+        ? 'display: block; width: 22px; height: 6px; border-radius: 999px; background: #FFFFFF'
+        : 'display: block; width: 6px; height: 6px; border-radius: 999px; background: rgba(255, 255, 255, 0.45)',
+      ir: () => this.setState({ slide: i })
+    }));
+
+    const data = [
+      { parte: 'Cerebro', key: 'cerebro', x: 120, y: 54, compuesto: 'Antioxidantes', titulo: 'Protege tus células', texto: 'Sus polifenoles y antocianinas ayudan a combatir los radicales libres, que aceleran el envejecimiento celular.' },
+      { parte: 'Boca', key: 'boca', x: 120, y: 92, compuesto: 'Proantocianidinas', titulo: 'Una sonrisa más sana', texto: 'Puede dificultar que las bacterias se adhieran a dientes y encías, ayudando a prevenir la placa.' },
+      { parte: 'Corazón', key: 'corazon', x: 120, y: 188, compuesto: 'Flavonoides', titulo: 'Cuida tu corazón', texto: 'Sus flavonoides se asocian a una mejor salud cardiovascular y a la protección de los vasos sanguíneos.' },
+      { parte: 'Estómago', key: 'estomago', x: 124, y: 244, compuesto: 'Polifenoles', titulo: 'Digestión en equilibrio', texto: 'Puede ayudar a reducir la adhesión de la bacteria H. pylori a las paredes del estómago.' },
+      { parte: 'Vías urinarias', key: 'vias', x: 120, y: 326, compuesto: 'PAC tipo A', titulo: 'Su beneficio más conocido', texto: 'Sus proantocianidinas tipo A ayudan a evitar que las bacterias se adhieran a las vías urinarias.' },
+      { parte: 'Defensas', key: 'defensas', x: 186, y: 276, compuesto: 'Vitamina C', titulo: 'Defensas para toda la familia', texto: 'Aporta vitamina C y antioxidantes que apoyan al sistema inmune en el día a día.' }
+    ];
+    const p = this.state.parte;
+    const OX = 130, OY = 20;
+    const org = {};
+    data.forEach((d, i) => { org[d.key] = i === p ? '#EAF8FF' : 'rgba(127, 211, 240, 0.10)'; });
+    const act = data[p];
+    const ox = OX + act.x, oy = OY + act.y;
+    const codo = 470;
+    const linea = 'M ' + ox + ' ' + oy + ' H ' + codo + ' V 330 H 640';
+    const partes = data.map((d, i) => {
+      const on = i === p;
+      return {
+        parte: d.parte,
+        estiloChip: on
+          ? 'background: #12304F; color: #FFFFFF; border: 1px solid #7FD3F0'
+          : 'background: transparent; color: #CFE3F0; border: 1px solid #2A4A6E',
+        elegir: () => this.setState({ parte: i })
+      };
+    });
+    const marcas = data.map((d, i) => ({
+      parte: d.parte,
+      posicion: 'left: ' + (OX + d.x - 22) + 'px; top: ' + (OY + d.y - 22) + 'px',
+      elegir: () => this.setState({ parte: i })
+    }));
+    const m = data.length;
+    return {
+      slide, puntos,
+      anterior: () => this.setState({ slide: (s - 1 + n) % n }),
+      siguiente: () => this.setState({ slide: (s + 1) % n }),
+      partes, marcas, org, linea,
+      origen: { x: ox, y: oy },
+      actual: data[p],
+      contador: (p + 1) + ' de ' + m,
+      parteAnterior: () => this.setState({ parte: (p - 1 + m) % m }),
+      parteSiguiente: () => this.setState({ parte: (p + 1) % m }),
+      frascos: [
+        { nombre: 'Mermelada de cranberry', precio: '$6.990', desc: 'Gourmet Premium · 460 g. Para meriendas dulces y saladas.', etiqueta: 'Gourmet Premium', foto: '{% endverbatim %}{% static 'img/mermelada.jpg' %}{% verbatim %}', sinFoto: false },
+        { nombre: 'Conserva de cranberry', precio: '$7.490', desc: 'Gourmet Premium · 460 g. Fruta entera para tablas y platos.', etiqueta: 'Gourmet Premium', foto: '{% endverbatim %}{% static 'img/conserva.jpg' %}{% verbatim %}', sinFoto: false },
+        { nombre: 'Pulpa de cranberry', precio: '$9.990', desc: '1 kg, 100% natural y sin azúcar añadida.', etiqueta: 'IQF y Pulpa', foto: '{% endverbatim %}{% static 'img/pulpa.jpg' %}{% verbatim %}', sinFoto: false },
+        { nombre: '100% jugo de cranberry', precio: '$4.990', desc: '1 L, sin azúcar añadida.', etiqueta: 'Sin azúcar añadida', foto: '{% endverbatim %}{% static 'img/jugo.jpg' %}{% verbatim %}', sinFoto: false }
+      ],
+      recetas: [
+        { nombre: 'Crostinis de cranberry y queso', usa: 'Mermelada', foto: '{% endverbatim %}{% static 'img/receta_crostini.jpg' %}{% verbatim %}' },
+        { nombre: 'Queque invertido de cranberry', usa: 'Cranberry IQF', foto: '{% endverbatim %}{% static 'img/receta_queque.jpg' %}{% verbatim %}' },
+        { nombre: 'Muffins de cranberry y naranja', usa: 'Cranberry IQF', foto: '{% endverbatim %}{% static 'img/receta_muffins.jpg' %}{% verbatim %}' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
+{% endverbatim %}

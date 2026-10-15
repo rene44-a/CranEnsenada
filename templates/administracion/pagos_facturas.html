@@ -1,0 +1,240 @@
+{% load static %}{% verbatim %}<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Pagos y facturas</title>
+{% endverbatim %}<script src="{% static 'js/support.js' %}"></script>{% verbatim %}
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'DM Sans',system-ui,sans-serif;color:#2E1A20;background:#FBF1F3}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;color:#6E1A2E;font-weight:600;letter-spacing:-0.01em}
+.logo{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',Georgia,serif;color:#6E1A2E;letter-spacing:-0.01em}
+.logoimg{display:block;height:44px;width:auto;background:#FFFFFF;border-radius:10px;padding:4px 8px;box-sizing:content-box}
+.img{display:block;width:100%;object-fit:cover}
+.navy{background-color:#0B1B33;background-image:linear-gradient(rgba(127,211,240,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(127,211,240,.07) 1px,transparent 1px);background-size:32px 32px}
+header{background:#7A1A33 !important;border-bottom:0 !important;color:#FFFFFF}
+header .logo{color:#FFFFFF}
+header .logo svg{background:#FFFFFF;border-radius:999px;padding:3px}
+header span{color:#FFE3E8 !important}
+header .logo span{color:#FFFFFF !important}
+header a{color:#FFFFFF !important}
+header a:hover{color:#FFE3E8 !important}
+.side a[style*="#F8E3E8"]{background:#2F5D3A !important;color:#FFFFFF !important}
+.side a:hover{background:#E6F2E8 !important}
+.side a[style*="#F8E3E8"]:hover{background:#234A2D !important}
+a{color:#7A1A33}a:hover{color:#5E1226}
+.side a{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:6px;color:#2E1A20;text-decoration:none;font-size:15px;font-weight:500}
+.side a:hover{background:#FBF1F3;color:#2E1A20}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;background:#2F5D3A;color:#FFFFFF;border:0;border-radius:999px;font:600 15px 'DM Sans',sans-serif;cursor:pointer}
+.btn:hover{background:#234A2D}
+.btn2{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 14px;background:#FFFFFF;color:#2E1A20;border:1px solid #E2C6CD;border-radius:999px;font:600 13px 'DM Sans',sans-serif;cursor:pointer}
+.ok{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 14px;background:#2F5D3A;color:#FFFFFF;border:0;border-radius:999px;font:600 13px 'DM Sans',sans-serif;cursor:pointer}
+.inp{height:44px;border:1px solid #E2C6CD;border-radius:12px;padding:0 12px;font:15px 'DM Sans',sans-serif;color:#2E1A20;background:#FFFFFF;box-sizing:border-box;width:100%}
+.lbl{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:#2E1A20}
+.card{background:#FFFFFF;border:1px solid #F0DCE1;border-radius:20px;padding:24px;box-sizing:border-box}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{text-align:left;font-weight:600;color:#76656A;font-size:13px;padding:10px 12px;border-bottom:1px solid #F0DCE1;white-space:nowrap}
+.tbl td{padding:12px;border-bottom:1px solid #F0DCE1;white-space:nowrap;vertical-align:middle}
+.seg{min-height:44px;padding:0 20px;border:0;font:600 14px 'DM Sans',sans-serif;cursor:pointer}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #FBF1F3; font-family: 'DM Sans', system-ui, sans-serif; color: #2E1A20">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #F0DCE1">
+    <div style="padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center">
+      <div style="display: flex; align-items: baseline; gap: 12px"><span style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em"><img class="logoimg" src="{% endverbatim %}{% static 'img/logo.png' %}{% verbatim %}" alt="CranEnsenada · Cranberry 100% natural. Producto chileno."></span><span style="font-size: 13px; color: #76656A">Administración</span></div>
+      <div style="display: flex; align-items: center; gap: 16px; font-size: 14px"><span>[Nombre del administrador]</span><a href="{% endverbatim %}{% url 'panel_login' %}{% verbatim %}" style="min-height: 44px; display: flex; align-items: center; font-weight: 600">Cerrar sesión</a></div>
+    </div>
+  </header>
+  <div style="display: flex; flex-wrap: wrap">
+    <nav class="side" aria-label="Menú de administración" style="flex: 1 1 220px; max-width: 100%; background: #FFFFFF; border-right: 1px solid #F0DCE1; padding: 20px 12px; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px">
+      <a href="{% endverbatim %}{% url 'panel_dashboard' %}{% verbatim %}">Dashboard</a>
+      <a href="{% endverbatim %}{% url 'panel_pedidos' %}{% verbatim %}">Pedidos</a>
+      <a href="{% endverbatim %}{% url 'panel_pagos' %}{% verbatim %}" style="background: #F8E3E8; color: #7A1A33; font-weight: 600">Pagos y facturas</a>
+      <a href="{% endverbatim %}{% url 'panel_productos' %}{% verbatim %}">Productos</a>
+      <a href="{% endverbatim %}{% url 'panel_inventario' %}{% verbatim %}">Inventario</a>
+      <a href="{% endverbatim %}{% url 'panel_mermas' %}{% verbatim %}">Mermas y muestras</a>
+      <a href="{% endverbatim %}{% url 'panel_promociones' %}{% verbatim %}">Promociones</a>
+      <a href="{% endverbatim %}{% url 'panel_recetas' %}{% verbatim %}">Recetas</a>
+    </nav>
+
+    <main style="flex: 999 1 560px; min-width: 0; padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h1 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">Pagos y facturas</h1>
+        <div style="font-size: 14px; color: #76656A">Ventas ingresadas por el administrador y revisión de comprobantes y solicitudes de factura enviados desde la web.</div>
+      </div>
+
+      <form class="card" style="display: flex; flex-direction: column; gap: 20px">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 style="margin: 0; font-size: 17px; font-weight: 600">Registrar compra manual</h2>
+            <div style="font-size: 13px; color: #76656A">Para ventas que el administrador ingresa directamente (por teléfono, WhatsApp o en persona). Quedan en los reportes con origen «manual».</div>
+          </div>
+          <div role="group" aria-label="Tipo de pago" style="display: flex; border: 1px solid #E2C6CD; border-radius: 12px; overflow: hidden">
+            <button type="button" class="seg" style="{{estiloTransf}}" onClick="{{elegirTransf}}">Transferencia</button>
+            <button type="button" class="seg" style="{{estiloFact}}" onClick="{{elegirFact}}">Venta con factura</button>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px 18px">
+          <label class="lbl">Nombre del cliente<input class="inp" type="text"></label>
+          <label class="lbl">Correo<input class="inp" type="email" placeholder="nombre@correo.cl"></label>
+          <label class="lbl">Teléfono<input class="inp" type="tel" placeholder="+56 9"></label>
+          <label class="lbl">Fecha de pago<input class="inp" type="date"></label>
+        </div>
+
+        <sc-if value="{{esFactura}}" hint-placeholder-val="{{false}}">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px 18px; background: #FBF1F3; border-radius: 18px; padding: 16px">
+            <label class="lbl">RUT de la empresa<input class="inp" type="text" placeholder="76.123.456-7"></label>
+            <label class="lbl">Razón social<input class="inp" type="text"></label>
+            <label class="lbl">N° de factura (emitida fuera de la plataforma)<input class="inp" type="text"></label>
+            <label class="lbl">Condición de pago<select class="inp"><option>Pagada</option><option>Pago a 30 días</option><option>[Otra condición]</option></select></label>
+          </div>
+        </sc-if>
+        <sc-if value="{{esTransf}}" hint-placeholder-val="{{true}}">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px 18px; background: #FBF1F3; border-radius: 18px; padding: 16px">
+            <label class="lbl">Banco de origen<input class="inp" type="text"></label>
+            <label class="lbl">N° de operación<input class="inp" type="text"></label>
+          </div>
+        </sc-if>
+
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <span style="font-size: 13px; font-weight: 600">Productos</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
+            <select class="inp" aria-label="Producto" style="flex: 3 1 240px"><option>[Producto 1]</option><option>[Producto 2]</option></select>
+            <input class="inp" type="number" min="1" value="1" aria-label="Cantidad" style="flex: 1 1 90px">
+            <span style="flex: 1 1 110px; font-weight: 600; text-align: right">[$ Subtotal]</span>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
+            <select class="inp" aria-label="Producto" style="flex: 3 1 240px"><option>[Producto 2]</option><option>[Producto 1]</option></select>
+            <input class="inp" type="number" min="1" value="2" aria-label="Cantidad" style="flex: 1 1 90px">
+            <span style="flex: 1 1 110px; font-weight: 600; text-align: right">[$ Subtotal]</span>
+          </div>
+          <button type="button" class="btn2" style="align-self: flex-start">+ Agregar producto</button>
+        </div>
+
+        <label style="min-height: 72px; border: 1px dashed #E2C6CD; border-radius: 18px; background: #FBF1F3; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; color: #55434A; cursor: pointer; position: relative">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5"></path><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"></path></svg>
+          Adjuntar {{docTexto}} (PDF o imagen)
+          <input type="file" accept="image/*,application/pdf" style="position: absolute; width: 1px; height: 1px; opacity: 0">
+        </label>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; border-top: 1px solid #F0DCE1; padding-top: 16px">
+          <span style="font-size: 14px; color: #76656A">Total: <strong style="font-size: 18px; color: #2E1A20">[$ Total]</strong> · Al registrar, se crea la venta y se descuenta el stock.</span>
+          <button type="button" class="btn">Registrar compra</button>
+        </div>
+      </form>
+
+      <section class="card" style="display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+          <div style="display: flex; align-items: center; gap: 10px">
+            <h2 style="margin: 0; font-size: 17px; font-weight: 600">Por revisar desde la web</h2>
+            <span style="font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: #F6EBDC; color: #7A4800">{{pendientes}} pendientes</span>
+          </div>
+          <select class="inp" aria-label="Filtrar por tipo" style="width: 180px"><option>Todos</option><option>Comprobantes de transferencia</option><option>Solicitudes de factura</option></select>
+        </div>
+        <div style="font-size: 13px; color: #76656A">Al aprobar un comprobante, el pago queda confirmado y el pedido avanza. Las solicitudes de factura se revisan aparte del pago; la factura se emite fuera de la plataforma.</div>
+        <div style="overflow-x: auto">
+          <table class="tbl">
+            <thead><tr><th>Subido</th><th>N° pedido</th><th>Cliente</th><th>Tipo</th><th>Monto</th><th>Adjuntos</th><th style="text-align: right">Acción</th></tr></thead>
+            <tbody>
+              <sc-for list="{{porConfirmar}}" as="p" hint-placeholder-count="3">
+                <tr>
+                  <td>[dd/mm hh:mm]</td>
+                  <td style="font-weight: 600">[000124]</td>
+                  <td>[Nombre del cliente]</td>
+                  <td>{{p.tipo}}</td>
+                  <td style="font-weight: 600">[$ Monto]</td>
+                  <td><a href="#adjunto" style="font-weight: 600">{{p.adjunto}}</a></td>
+                  <td style="text-align: right">
+                    <sc-if value="{{p.pendiente}}" hint-placeholder-val="{{true}}">
+                      <span style="display: inline-flex; gap: 8px"><button type="button" class="ok" onClick="{{p.confirmar}}">Aprobar</button><button type="button" class="btn2" onClick="{{p.pedirMotivo}}">Rechazar</button></span>
+                    </sc-if>
+                    <sc-if value="{{p.enMotivo}}" hint-placeholder-val="{{false}}">
+                      <span style="display: inline-flex; gap: 8px; align-items: center">
+                        <select class="inp" aria-label="Motivo del rechazo" style="width: 230px; height: 38px; font-size: 13px"><option>{{p.motivo1}}</option><option>{{p.motivo2}}</option><option>Otro motivo</option></select>
+                        <button type="button" class="btn2" style="min-height: 38px" onClick="{{p.rechazar}}">Confirmar rechazo</button>
+                      </span>
+                    </sc-if>
+                    <sc-if value="{{p.resuelto}}" hint-placeholder-val="{{false}}">
+                      <span style="{{p.estilo}}">{{p.estado}}</span>
+                    </sc-if>
+                  </td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+        <div style="font-size: 12px; color: #76656A">Al rechazar se registra el motivo; el comprador lo ve en su pedido y puede enviar un nuevo comprobante o antecedente. Cada revisión guarda usuario, fecha y resultado.</div>
+      </section>
+
+      <section class="card" style="display: flex; flex-direction: column; gap: 12px">
+        <h2 style="margin: 0; font-size: 17px; font-weight: 600">Historial de revisiones y ventas manuales</h2>
+        <div style="overflow-x: auto">
+          <table class="tbl">
+            <thead><tr><th>Fecha</th><th>N° pedido</th><th>Cliente</th><th>Tipo</th><th>Origen</th><th>Monto</th><th>Resultado</th><th>Revisado por</th></tr></thead>
+            <tbody>
+              <sc-for list="{{historial}}" as="h" hint-placeholder-count="4">
+                <tr><td>[dd/mm/aaaa]</td><td>[000120]</td><td>[Cliente]</td><td>{{h.tipo}}</td><td>{{h.origen}}</td><td>[$ Monto]</td><td><span style="{{h.estilo}}">{{h.estado}}</span></td><td>[Administrador]</td></tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1900}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { tipo: 'transferencia', estados: ['pendiente', 'pendiente', 'pendiente'] }; }
+  renderVals() {
+    const fact = this.state.tipo === 'factura';
+    const on = 'background: #2E1A20; color: #FFFFFF';
+    const off = 'background: #FFFFFF; color: #2E1A20';
+    const badge = (bg, c) => 'font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: ' + bg + '; color: ' + c;
+    const verde = badge('#E2EFE4', '#2F5D3A');
+    const gris = badge('#FBF1F3', '#76656A');
+    const rojo = badge('#F8E3E8', '#7A1A33');
+    const tipos = ['Comprobante de transferencia', 'Solicitud de factura', 'Comprobante de transferencia'];
+    const est = this.state.estados;
+    const set = (i, v) => { const n = est.slice(); n[i] = v; this.setState({ estados: n }); };
+    const porConfirmar = tipos.map((t, i) => ({
+      tipo: t,
+      adjunto: t === 'Solicitud de factura' ? 'Ver antecedentes (2)' : 'Ver comprobante',
+      pendiente: est[i] === 'pendiente',
+      enMotivo: est[i] === 'motivo',
+      resuelto: est[i] === 'confirmado' || est[i] === 'rechazado',
+      estado: est[i] === 'confirmado' ? (t === 'Solicitud de factura' ? 'Solicitud aprobada' : 'Pago confirmado') : 'Rechazado · motivo registrado',
+      estilo: est[i] === 'confirmado' ? verde : rojo,
+      motivo1: t === 'Solicitud de factura' ? 'Antecedentes ilegibles' : 'El monto no coincide con el total',
+      motivo2: t === 'Solicitud de factura' ? 'Faltan datos de la empresa' : 'Comprobante ilegible o incompleto',
+      confirmar: () => set(i, 'confirmado'),
+      pedirMotivo: () => set(i, 'motivo'),
+      rechazar: () => set(i, 'rechazado')
+    }));
+    const historial = [
+      { tipo: 'Comprobante de transferencia', origen: 'Web (comprador)', estado: 'Pago confirmado', estilo: verde },
+      { tipo: 'Venta con factura', origen: 'Ingresada por admin', estado: 'Venta registrada', estilo: gris },
+      { tipo: 'Solicitud de factura', origen: 'Web (comprador)', estado: 'Rechazada: faltan datos', estilo: rojo },
+      { tipo: 'Transferencia', origen: 'Ingresada por admin', estado: 'Venta registrada', estilo: gris }
+    ];
+    return {
+      esFactura: fact, esTransf: !fact,
+      estiloTransf: fact ? off : on,
+      estiloFact: fact ? on : off,
+      elegirTransf: () => this.setState({ tipo: 'transferencia' }),
+      elegirFact: () => this.setState({ tipo: 'factura' }),
+      docTexto: fact ? 'factura' : 'comprobante de transferencia',
+      pendientes: est.filter((e) => e === 'pendiente' || e === 'motivo').length,
+      porConfirmar, historial
+    };
+  }
+}
+</script>
+</body>
+</html>
+{% endverbatim %}

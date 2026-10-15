@@ -1,0 +1,113 @@
+{% load static %}{% verbatim %}<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Registrar o modificar producto</title>
+{% endverbatim %}<script src="{% static 'js/support.js' %}"></script>{% verbatim %}
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'DM Sans',system-ui,sans-serif;color:#2E1A20;background:#FBF1F3}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;color:#6E1A2E;font-weight:600;letter-spacing:-0.01em}
+.logo{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',Georgia,serif;color:#6E1A2E;letter-spacing:-0.01em}
+.logoimg{display:block;height:44px;width:auto;background:#FFFFFF;border-radius:10px;padding:4px 8px;box-sizing:content-box}
+.img{display:block;width:100%;object-fit:cover}
+.navy{background-color:#0B1B33;background-image:linear-gradient(rgba(127,211,240,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(127,211,240,.07) 1px,transparent 1px);background-size:32px 32px}
+header{background:#7A1A33 !important;border-bottom:0 !important;color:#FFFFFF}
+header .logo{color:#FFFFFF}
+header .logo svg{background:#FFFFFF;border-radius:999px;padding:3px}
+header span{color:#FFE3E8 !important}
+header .logo span{color:#FFFFFF !important}
+header a{color:#FFFFFF !important}
+header a:hover{color:#FFE3E8 !important}
+.side a[style*="#F8E3E8"]{background:#2F5D3A !important;color:#FFFFFF !important}
+.side a:hover{background:#E6F2E8 !important}
+.side a[style*="#F8E3E8"]:hover{background:#234A2D !important}
+a{color:#7A1A33}a:hover{color:#5E1226}
+.side a{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:6px;color:#2E1A20;text-decoration:none;font-size:15px;font-weight:500}
+.side a:hover{background:#FBF1F3;color:#2E1A20}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 24px;background:#2F5D3A;color:#FFFFFF;border:0;border-radius:999px;font:600 15px 'DM Sans',sans-serif;text-decoration:none}
+.btn:hover{background:#234A2D;color:#FFFFFF}
+.btn2{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;background:#FFFFFF;color:#2E1A20;border:1px solid #E2C6CD;border-radius:999px;font:600 15px 'DM Sans',sans-serif;text-decoration:none}
+.btn2:hover{border-color:#2E1A20;color:#2E1A20}
+.inp{height:44px;border:1px solid #E2C6CD;border-radius:12px;padding:0 12px;font:15px 'DM Sans',sans-serif;color:#2E1A20;background:#FFFFFF;box-sizing:border-box;width:100%}
+.lbl{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:#2E1A20}
+.card{background:#FFFFFF;border:1px solid #F0DCE1;border-radius:20px;padding:28px;box-sizing:border-box}
+.chk{display:flex;gap:10px;align-items:center;min-height:44px;font-size:15px}
+.chk input{width:18px;height:18px;accent-color:#7A1A33}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #FBF1F3; font-family: 'DM Sans', system-ui, sans-serif; color: #2E1A20">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #F0DCE1">
+    <div style="padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center">
+      <div style="display: flex; align-items: baseline; gap: 12px"><span style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em"><img class="logoimg" src="{% endverbatim %}{% static 'img/logo.png' %}{% verbatim %}" alt="CranEnsenada · Cranberry 100% natural. Producto chileno."></span><span style="font-size: 13px; color: #76656A">Administración</span></div>
+      <div style="display: flex; align-items: center; gap: 16px; font-size: 14px"><span>[Nombre del administrador]</span><a href="{% endverbatim %}{% url 'panel_login' %}{% verbatim %}" style="min-height: 44px; display: flex; align-items: center; font-weight: 600">Cerrar sesión</a></div>
+    </div>
+  </header>
+  <div style="display: flex; flex-wrap: wrap">
+    <nav class="side" aria-label="Menú de administración" style="flex: 1 1 220px; max-width: 100%; background: #FFFFFF; border-right: 1px solid #F0DCE1; padding: 20px 12px; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px">
+      <a href="{% endverbatim %}{% url 'panel_dashboard' %}{% verbatim %}">Dashboard</a>
+      <a href="{% endverbatim %}{% url 'panel_pedidos' %}{% verbatim %}">Pedidos</a>
+      <a href="{% endverbatim %}{% url 'panel_pagos' %}{% verbatim %}">Pagos y facturas</a>
+      <a href="{% endverbatim %}{% url 'panel_productos' %}{% verbatim %}" style="background: #F8E3E8; color: #7A1A33; font-weight: 600">Productos</a>
+      <a href="{% endverbatim %}{% url 'panel_inventario' %}{% verbatim %}">Inventario</a>
+      <a href="{% endverbatim %}{% url 'panel_mermas' %}{% verbatim %}">Mermas y muestras</a>
+      <a href="{% endverbatim %}{% url 'panel_promociones' %}{% verbatim %}">Promociones</a>
+      <a href="{% endverbatim %}{% url 'panel_recetas' %}{% verbatim %}">Recetas</a>
+    </nav>
+
+    <main style="flex: 999 1 560px; min-width: 0; padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <a href="{% endverbatim %}{% url 'panel_productos' %}{% verbatim %}" style="font-size: 14px; font-weight: 600; text-decoration: none">← Productos</a>
+        <h1 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">Nuevo producto</h1>
+        <div style="font-size: 14px; color: #76656A">Al editar un producto existente, este mismo formulario aparece con sus datos cargados.</div>
+      </div>
+
+      <form class="card" style="display: flex; flex-direction: column; gap: 22px; max-width: 880px">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px 20px">
+          <label class="lbl" style="grid-column: 1 / -1">Nombre del producto<input class="inp" type="text"></label>
+          <label class="lbl" style="grid-column: 1 / -1">Descripción
+            <textarea rows="4" style="border: 1px solid #E2C6CD; border-radius: 12px; padding: 10px 12px; font: 15px 'DM Sans', sans-serif; color: #2E1A20; resize: vertical"></textarea>
+          </label>
+          <label class="lbl">Precio (CLP)<input class="inp" type="number" min="0" placeholder="0"></label>
+          <label class="lbl">Formato<input class="inp" type="text" placeholder="p. ej. 250 g"></label>
+          <label class="lbl">Categoría<select class="inp"><option>Selecciona</option><option>[Categoría 1]</option><option>[Categoría 2]</option></select></label>
+          <label class="lbl">Stock inicial<input class="inp" type="number" min="0" placeholder="0"></label>
+          <label class="lbl">Fecha de elaboración<input class="inp" type="date"></label>
+          <label class="lbl">Fecha de vencimiento<input class="inp" type="date" aria-describedby="venc-ayuda"><span id="venc-ayuda" style="font-size: 12px; font-weight: 500; color: #76656A">Debe ser posterior a la fecha de elaboración; si no, no se puede guardar.</span></label>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <span style="font-size: 13px; font-weight: 600">Fotografías</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px">
+            <label style="width: 120px; height: 120px; border: 1px dashed #E2C6CD; border-radius: 18px; background: #FBF1F3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; font-size: 13px; color: #76656A; cursor: pointer">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+              Subir foto
+              <input type="file" accept="image/*" style="position: absolute; width: 1px; height: 1px; opacity: 0">
+            </label>
+            <div style="width: 120px; height: 120px; border: 1px solid #F0DCE1; border-radius: 18px; background: #FBF1F3; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #76656A">Foto 1</div>
+          </div>
+        </div>
+
+        <label class="chk"><input type="checkbox" checked="">Visible en el catálogo</label>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; border-top: 1px solid #F0DCE1; padding-top: 20px">
+          <a class="btn2" href="{% endverbatim %}{% url 'panel_productos' %}{% verbatim %}">Cancelar</a>
+          <a class="btn" href="{% endverbatim %}{% url 'panel_productos' %}{% verbatim %}">Guardar producto</a>
+        </div>
+      </form>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1180}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
+{% endverbatim %}

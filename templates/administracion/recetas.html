@@ -1,0 +1,167 @@
+{% load static %}{% verbatim %}<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Gestión de recetas</title>
+{% endverbatim %}<script src="{% static 'js/support.js' %}"></script>{% verbatim %}
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'DM Sans',system-ui,sans-serif;color:#2E1A20;background:#FBF1F3}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;color:#6E1A2E;font-weight:600;letter-spacing:-0.01em}
+.logo{display:inline-flex;align-items:center;gap:8px;font-family:'Fraunces',Georgia,serif;color:#6E1A2E;letter-spacing:-0.01em}
+.logoimg{display:block;height:44px;width:auto;background:#FFFFFF;border-radius:10px;padding:4px 8px;box-sizing:content-box}
+.img{display:block;width:100%;object-fit:cover}
+.navy{background-color:#0B1B33;background-image:linear-gradient(rgba(127,211,240,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(127,211,240,.07) 1px,transparent 1px);background-size:32px 32px}
+header{background:#7A1A33 !important;border-bottom:0 !important;color:#FFFFFF}
+header .logo{color:#FFFFFF}
+header .logo svg{background:#FFFFFF;border-radius:999px;padding:3px}
+header span{color:#FFE3E8 !important}
+header .logo span{color:#FFFFFF !important}
+header a{color:#FFFFFF !important}
+header a:hover{color:#FFE3E8 !important}
+.side a[style*="#F8E3E8"]{background:#2F5D3A !important;color:#FFFFFF !important}
+.side a:hover{background:#E6F2E8 !important}
+.side a[style*="#F8E3E8"]:hover{background:#234A2D !important}
+a{color:#7A1A33}a:hover{color:#5E1226}
+.side a{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:6px;color:#2E1A20;text-decoration:none;font-size:15px;font-weight:500}
+.side a:hover{background:#FBF1F3;color:#2E1A20}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;background:#2F5D3A;color:#FFFFFF;border:0;border-radius:999px;font:600 15px 'DM Sans',sans-serif}
+.btn:hover{background:#234A2D}
+.btn2{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 20px;background:#FFFFFF;color:#2E1A20;border:1px solid #E2C6CD;border-radius:999px;font:600 15px 'DM Sans',sans-serif}
+.inp{height:44px;border:1px solid #E2C6CD;border-radius:12px;padding:0 12px;font:15px 'DM Sans',sans-serif;color:#2E1A20;background:#FFFFFF;box-sizing:border-box;width:100%}
+.ta{border:1px solid #E2C6CD;border-radius:6px;padding:10px 12px;font:15px 'DM Sans',sans-serif;color:#2E1A20;resize:vertical}
+.lbl{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:#2E1A20}
+.card{background:#FFFFFF;border:1px solid #F0DCE1;border-radius:20px;padding:24px;box-sizing:border-box}
+.ph{background:#FBF1F3;border:1px dashed #E2C6CD;display:flex;align-items:center;justify-content:center;color:#76656A;font-size:11px;box-sizing:border-box}
+.seg{min-height:38px;padding:0 14px;border:0;font:600 13px 'DM Sans',sans-serif;cursor:pointer}
+.act{min-height:36px;padding:0 12px;border:1px solid #E2C6CD;border-radius:999px;background:#FFFFFF;font:600 13px 'DM Sans',sans-serif;color:#2E1A20}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #FBF1F3; font-family: 'DM Sans', system-ui, sans-serif; color: #2E1A20">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #F0DCE1">
+    <div style="padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center">
+      <div style="display: flex; align-items: baseline; gap: 12px"><span style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em"><img class="logoimg" src="{% endverbatim %}{% static 'img/logo.png' %}{% verbatim %}" alt="CranEnsenada · Cranberry 100% natural. Producto chileno."></span><span style="font-size: 13px; color: #76656A">Administración</span></div>
+      <div style="display: flex; align-items: center; gap: 16px; font-size: 14px"><span>[Nombre del administrador]</span><a href="{% endverbatim %}{% url 'panel_login' %}{% verbatim %}" style="min-height: 44px; display: flex; align-items: center; font-weight: 600">Cerrar sesión</a></div>
+    </div>
+  </header>
+  <div style="display: flex; flex-wrap: wrap">
+    <nav class="side" aria-label="Menú de administración" style="flex: 1 1 220px; max-width: 100%; background: #FFFFFF; border-right: 1px solid #F0DCE1; padding: 20px 12px; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px">
+      <a href="{% endverbatim %}{% url 'panel_dashboard' %}{% verbatim %}">Dashboard</a>
+      <a href="{% endverbatim %}{% url 'panel_pedidos' %}{% verbatim %}">Pedidos</a>
+      <a href="{% endverbatim %}{% url 'panel_pagos' %}{% verbatim %}">Pagos y facturas</a>
+      <a href="{% endverbatim %}{% url 'panel_productos' %}{% verbatim %}">Productos</a>
+      <a href="{% endverbatim %}{% url 'panel_inventario' %}{% verbatim %}">Inventario</a>
+      <a href="{% endverbatim %}{% url 'panel_mermas' %}{% verbatim %}">Mermas y muestras</a>
+      <a href="{% endverbatim %}{% url 'panel_promociones' %}{% verbatim %}">Promociones</a>
+      <a href="{% endverbatim %}{% url 'panel_recetas' %}{% verbatim %}" style="background: #F8E3E8; color: #7A1A33; font-weight: 600">Recetas</a>
+    </nav>
+
+    <main style="flex: 999 1 560px; min-width: 0; padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+      <h1 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">Recetas y contenido</h1>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+        <section class="card" style="flex: 1 1 340px; display: flex; flex-direction: column; gap: 4px">
+          <h2 style="margin: 0 0 8px; font-size: 17px; font-weight: 600">Publicaciones</h2>
+          <sc-for list="{{recetas}}" as="r" hint-placeholder-count="4">
+            <div style="display: flex; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid #F0DCE1">
+              <div class="ph" style="width: 56px; height: 56px; border-radius: 12px">Foto</div>
+              <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+                <span style="font-size: 15px; font-weight: 600">[Nombre de la receta]</span>
+                <span style="{{r.estilo}}">{{r.estado}}</span>
+              </div>
+              <div style="display: flex; gap: 6px"><button class="act">Editar</button><button class="act" style="color: #B3261E">Eliminar</button></div>
+            </div>
+          </sc-for>
+        </section>
+
+        <form class="card" style="flex: 2 1 420px; display: flex; flex-direction: column; gap: 16px">
+          <h2 style="margin: 0; font-size: 17px; font-weight: 600">Nueva receta</h2>
+          <label class="lbl">Título<input class="inp" type="text"></label>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px">
+            <label class="lbl">Tiempo de preparación<input class="inp" type="text" placeholder="p. ej. 30 min"></label>
+            <label class="lbl">Porciones<input class="inp" type="number" min="1"></label>
+            <label class="lbl">Categoría<select class="inp"><option>Dulce</option><option>Salada</option><option>Bebida</option></select></label>
+          </div>
+          <label class="lbl">Productos usados<select class="inp"><option>Selecciona productos del catálogo</option><option>[Producto 1]</option><option>[Producto 2]</option></select></label>
+          <label class="lbl">Ingredientes<textarea class="ta" rows="4" placeholder="Un ingrediente por línea"></textarea></label>
+          <label class="lbl">Preparación<textarea class="ta" rows="6" placeholder="Pasos de la receta"></textarea></label>
+          <label style="min-height: 96px; border: 1px dashed #E2C6CD; border-radius: 18px; background: #FBF1F3; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; color: #76656A; cursor: pointer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+            Subir foto principal
+            <input type="file" accept="image/*" style="position: absolute; width: 1px; height: 1px; opacity: 0">
+          </label>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; border-top: 1px solid #F0DCE1; padding-top: 16px">
+            <button type="button" class="btn2">Guardar borrador</button>
+            <button type="button" class="btn">Publicar</button>
+          </div>
+        </form>
+      </div>
+
+      <section class="card" style="display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+          <div style="display: flex; align-items: center; gap: 10px">
+            <h2 style="margin: 0; font-size: 17px; font-weight: 600">Comentarios y fotos de la comunidad</h2>
+            <span style="font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: #F6EBDC; color: #7A4800">{{nPendientes}} por revisar</span>
+          </div>
+          <div role="group" aria-label="Filtrar comentarios" style="display: flex; border: 1px solid #E2C6CD; border-radius: 12px; overflow: hidden">
+            <sc-for list="{{filtros}}" as="f" hint-placeholder-count="3">
+              <button type="button" class="seg" style="{{f.estilo}}" onClick="{{f.elegir}}">{{f.nombre}}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="font-size: 13px; color: #76656A">Los comentarios y fotos se publican recién cuando los apruebas. Puedes ocultar o eliminar los ya publicados.</div>
+        <sc-for list="{{comentarios}}" as="c" hint-placeholder-count="3">
+          <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center; padding: 12px 0; border-top: 1px solid #F0DCE1">
+            <div class="ph" style="width: 56px; height: 56px; border-radius: 12px">{{c.foto}}</div>
+            <div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+              <span style="font-size: 14px"><strong>[Nombre del usuario]</strong> · {{c.estrellas}} · en <strong>[Nombre de la receta]</strong></span>
+              <span style="font-size: 13px; color: #76656A">[Texto del comentario] · [dd/mm/aaaa]</span>
+            </div>
+            <span style="{{c.estilo}}">{{c.estado}}</span>
+            <div style="display: flex; gap: 6px">
+              <sc-if value="{{c.puedeAprobar}}" hint-placeholder-val="{{true}}"><button type="button" class="act" style="color: #2F5D3A" onClick="{{c.aprobar}}">Aprobar</button></sc-if>
+              <sc-if value="{{c.puedeOcultar}}" hint-placeholder-val="{{false}}"><button type="button" class="act" onClick="{{c.ocultar}}">Ocultar</button></sc-if>
+              <button type="button" class="act" style="color: #B3261E" onClick="{{c.eliminar}}">Eliminar</button>
+            </div>
+          </div>
+        </sc-for>
+      </section>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1560}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { filtro: 'todos', com: ['pendiente', 'pendiente', 'publicado', 'oculto'] }; }
+  renderVals() {
+    const badge = (bg, c) => 'align-self: flex-start; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: ' + bg + '; color: ' + c;
+    const pub = badge('#E2EFE4', '#2F5D3A');
+    const bor = badge('#FBF1F3', '#76656A');
+    const recetas = [pub, pub, bor, pub].map((e) => ({ estilo: e, estado: e === pub ? 'Publicada' : 'Borrador' }));
+    const b2 = (bg, c) => 'font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; white-space: nowrap; background: ' + bg + '; color: ' + c;
+    const est = { pendiente: ['Por revisar', b2('#F6EBDC', '#7A4800')], publicado: ['Publicado', b2('#E2EFE4', '#2F5D3A')], oculto: ['Oculto', b2('#FBF1F3', '#76656A')] };
+    const com = this.state.com;
+    const set = (i, v) => { const n = com.slice(); n[i] = v; this.setState({ com: n }); };
+    const datos = [{ foto: 'Foto', estrellas: '★★★★★' }, { foto: 'Sin foto', estrellas: '★★★★☆' }, { foto: 'Foto', estrellas: '★★★★☆' }, { foto: 'Sin foto', estrellas: '★★☆☆☆' }];
+    const f = this.state.filtro;
+    const comentarios = datos.map((d, i) => ({ ...d, i, e: com[i] }))
+      .filter((c) => c.e !== 'eliminado' && (f === 'todos' || (f === 'pendientes' ? c.e === 'pendiente' : c.e !== 'pendiente')))
+      .map((c) => ({
+        foto: c.foto, estrellas: c.estrellas,
+        estado: est[c.e][0], estilo: est[c.e][1],
+        puedeAprobar: c.e !== 'publicado', puedeOcultar: c.e === 'publicado',
+        aprobar: () => set(c.i, 'publicado'), ocultar: () => set(c.i, 'oculto'), eliminar: () => set(c.i, 'eliminado')
+      }));
+    const on = 'background: #2E1A20; color: #FFFFFF', off = 'background: #FFFFFF; color: #2E1A20';
+    const filtros = [['todos', 'Todos'], ['pendientes', 'Por revisar'], ['revisados', 'Revisados']].map(([k, nombre]) => ({ nombre, estilo: f === k ? on : off, elegir: () => this.setState({ filtro: k }) }));
+    return { recetas, comentarios, filtros, nPendientes: com.filter((e) => e === 'pendiente').length };
+  }
+}
+</script>
+</body>
+</html>
+{% endverbatim %}
