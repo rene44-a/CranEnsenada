@@ -22,6 +22,8 @@ h1,h2,h3{font-family:'Fraunces',Georgia,serif;color:#6E1A2E;font-weight:600;lett
 .berry{position:fixed;z-index:60;width:28px;height:28px;pointer-events:none;transition:left .8s cubic-bezier(.3,0,.7,1),top .8s cubic-bezier(.4,-0.7,.75,1),transform .8s ease-in,opacity .8s ease-in}
 header a[aria-label^="Carrito"] span{transition:transform .18s ease-out}
 .pulso{transform:scale(1.45)}
+.vid{display:block;width:100%;height:100%;object-fit:cover;background:#2E1A20}
+.pasob{width:100%;min-height:48px;display:flex;align-items:center;gap:12px;padding:6px 14px 6px 6px;border-radius:999px;font:500 15px 'DM Sans',sans-serif;text-align:left;cursor:pointer}
 .navy{background-color:#0B1B33;background-image:linear-gradient(rgba(127,211,240,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(127,211,240,.07) 1px,transparent 1px);background-size:32px 32px}
 header{background:#7A1A33 !important;border-bottom:0 !important;color:#FFFFFF}
 header .logo{color:#FFFFFF}
@@ -89,7 +91,7 @@ a{color:#7A1A33}a:hover{color:#5E1226}
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px">
       <div style="display: flex; flex-direction: column; gap: 8px">
         <h2 id="t-frascos" style="margin: 0; font-size: 28px; font-weight: 700">Nuestros productos</h2>
-        <div style="font-size: 15px; color: #76656A">Línea Gourmet Premium para tu mesa y línea IQF y Pulpa para preparar.</div>
+        <div style="font-size: 15px; color: #76656A">Mermelada y conserva Gourmet Premium, por frasco o en cajas de 12.</div>
       </div>
       <a href="{% endverbatim %}{% url 'catalogo' %}{% verbatim %}" style="font-size: 15px; font-weight: 600; text-decoration: none">Ver todo el catálogo</a>
     </div>
@@ -112,35 +114,29 @@ a{color:#7A1A33}a:hover{color:#5E1226}
     </div>
   </section>
 
-  <section aria-labelledby="t-lineas" style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 0; display: flex; flex-direction: column; gap: 24px">
-    <div style="display: flex; flex-direction: column; gap: 8px">
-      <h2 id="t-lineas" style="margin: 0; font-size: 28px; font-weight: 700">Dos líneas para 2026</h2>
-      <div style="font-size: 15px; color: #76656A">Cuidamos el sabor, la presentación y la calidad de cada ingrediente.</div>
-    </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px">
-      <div style="display: flex; gap: 20px; align-items: center; border: 1px solid #F0DCE1; border-radius: 22px; padding: 20px; background: #FFFFFF">
-        <img class="img" src="{% endverbatim %}{% static 'img/mermelada.jpg' %}{% verbatim %}" alt="Mermelada de cranberry Gourmet Premium" style="width: 120px; height: 150px; border-radius: 14px; flex: none">
+  <section id="como-se-hace" aria-labelledby="t-proceso" style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 0; display: flex; flex-direction: column; gap: 24px">
+    <div style="display: flex; flex-direction: column; gap: 24px; border: 1px solid #EBC4CE; border-radius: 28px; padding: 32px; background: #F8E3E8">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px">
         <div style="display: flex; flex-direction: column; gap: 8px">
-          <span style="align-self: flex-start; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: #F8E3E8; color: #7A1A33">Para tu mesa</span>
-          <h3 style="margin: 0; font-size: 20px">Gourmet Premium · 460 g</h3>
-          <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #76656A">Mermelada y conserva para meriendas dulces y saladas, brunch y desayunos, platos fríos y calientes, o para vender en vitrina.</p>
+          <h2 id="t-proceso" style="margin: 0; font-size: 28px; font-weight: 700; color: #7A1A33">Cómo se hace</h2>
+          <div style="font-size: 15px; color: #5C2A36">Del campo en la Región de Los Lagos a tu mesa, en cuatro pasos.</div>
+        </div>
+        <div style="display: flex; gap: 8px">
+          <button type="button" class="round" aria-label="Paso anterior" onClick="{{procesoAnterior}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg></button>
+          <button type="button" class="round" aria-label="Paso siguiente" onClick="{{procesoSiguiente}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></button>
         </div>
       </div>
-      <div style="display: flex; gap: 20px; align-items: center; border: 1px solid #F0DCE1; border-radius: 22px; padding: 20px; background: #FFFFFF">
-        <img class="img" src="{% endverbatim %}{% static 'img/pulpa.jpg' %}{% verbatim %}" alt="Pulpa de cranberry de 1 kilo" style="width: 120px; height: 150px; border-radius: 14px; flex: none">
-        <div style="display: flex; flex-direction: column; gap: 8px">
-          <span style="align-self: flex-start; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: #E2EFE4; color: #2F5D3A">Para tu negocio</span>
-          <h3 style="margin: 0; font-size: 20px">IQF y Pulpa · 1 kg</h3>
-          <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #76656A">Para helados, jugos y repostería en pastelerías, cafeterías, bares de autor, restoranes y hoteles.</p>
-          <a href="https://wa.me/56974103575" style="font-size: 14px; font-weight: 600; text-decoration: none">Cotizar por WhatsApp →</a>
+      <div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: center">
+        <div style="flex: 3 1 600px; min-width: 0; height: 620px; border-radius: 20px; overflow: hidden; background: #7A1A33">
+          <video class="vid" src="{{paso.video}}" poster="{{paso.poster}}" controls muted playsinline loop preload="metadata" aria-label="{{paso.alt}}"></video>
+        </div>
+        <div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 12px">
+          <span style="align-self: flex-start; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 999px; background: #7A1A33; color: #FFFFFF">{{paso.numero}}</span>
+          <h3 style="margin: 0; font-size: 24px; font-weight: 700; line-height: 1.2; color: #7A1A33">{{paso.titulo}}</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #5C2A36">{{paso.texto}}</p>
+          <a href="{% endverbatim %}{% url 'catalogo' %}{% verbatim %}" style="margin-top: 8px; font-size: 15px; font-weight: 600; text-decoration: none; color: #7A1A33">Ver productos →</a>
         </div>
       </div>
-    </div>
-  </section><section style="margin-top: 72px; border-top: 1px solid #F0DCE1; border-bottom: 1px solid #F0DCE1">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 22px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 14px; font-weight: 500">
-      <span>Compra sin crear una cuenta</span>
-      <span>Pago en línea seguro</span>
-      <span>Despacho a todo Chile</span>
     </div>
   </section>
 
@@ -269,7 +265,7 @@ a{color:#7A1A33}a:hover{color:#5E1226}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":3560}}'>
 class Component extends DCLogic {
-  constructor(props) { super(props); this.carritoRef = { current: null }; this.state = { vuelo: null, enCarrito: 2, pulso: false, slide: 0, parte: 2 }; }
+  constructor(props) { super(props); this.carritoRef = { current: null }; this.state = { vuelo: null, enCarrito: 2, pulso: false, slide: 0, parte: 2, paso: 0 }; }
   volar(e, n) {
     const btn = e && e.currentTarget;
     if (!btn || this.state.vuelo) return;
@@ -299,17 +295,17 @@ class Component extends DCLogic {
   renderVals() {
     const v = this.valores();
     const c = this.carro(this.cantidadAgregar ? this.cantidadAgregar() : 1);
-    ['frascos', 'productos'].forEach((k) => { if (Array.isArray(v[k])) v[k] = v[k].map((x) => ({ ...x, agregar: c.agregar })); });
+    ['frascos', 'productos'].forEach((k) => { if (Array.isArray(v[k])) v[k] = v[k].map((x) => ({ ...x, agregar: x.unidades ? (e) => this.volar(e, x.unidades) : c.agregar })); });
     return { ...v, ...c };
   }
   valores() {
     const slides = [
       { titulo: 'Tablas de queso', texto: 'Su sabor agridulce combina con quesos maduros, frutos secos y galletas.', foto: '{% endverbatim %}{% static 'img/conserva_abierta.jpg' %}{% verbatim %}', alt: 'Conserva de cranberry junto a una tabla de quesos' },
       { titulo: 'Brunch y desayunos', texto: 'Sobre pan tostado con queso fresco, o con granola y yogur.', foto: '{% endverbatim %}{% static 'img/receta_crostini.jpg' %}{% verbatim %}', alt: 'Crostinis con mermelada de cranberry y queso' },
-      { titulo: 'Repostería', texto: 'En muffins, queques y rellenos, con pulpa o fruta IQF.', foto: '{% endverbatim %}{% static 'img/receta_muffins.jpg' %}{% verbatim %}', alt: 'Muffins de cranberry y naranja' },
+      { titulo: 'Repostería', texto: 'En muffins, queques y rellenos, con mermelada o conserva.', foto: '{% endverbatim %}{% static 'img/receta_muffins.jpg' %}{% verbatim %}', alt: 'Muffins de cranberry y naranja' },
       { titulo: 'Pastelería', texto: 'Para tortas invertidas, tartaletas y coberturas.', foto: '{% endverbatim %}{% static 'img/receta_queque.jpg' %}{% verbatim %}', alt: 'Queque invertido de cranberry' },
       { titulo: 'Carnes blancas', texto: 'Como salsa para pollo, pavo o cerdo, en platos fríos y calientes.', foto: '', sinFoto: true, alt: '' },
-      { titulo: 'Coctelería', texto: 'Jugo y pulpa para tragos de autor, jugos y agua con gas.', foto: '{% endverbatim %}{% static 'img/jugo.jpg' %}{% verbatim %}', alt: 'Botella de 100% jugo de cranberry' }
+      { titulo: 'Para regalar', texto: 'La caja mixta de 6 mermeladas y 6 conservas es ideal para regalos, eventos y tiendas.', foto: '{% endverbatim %}{% static 'img/caja_mixta.jpg' %}{% verbatim %}', alt: 'Frascos de mermelada y conserva de cranberry CranEnsenada' }
     ].map((x) => ({ sinFoto: false, ...x }));
     const n = slides.length;
     const s = this.state.slide;
@@ -321,6 +317,27 @@ class Component extends DCLogic {
         : 'display: block; width: 6px; height: 6px; border-radius: 999px; background: rgba(255, 255, 255, 0.45)',
       ir: () => this.setState({ slide: i })
     }));
+
+    const pasosProceso = [
+      { titulo: 'Cosecha en agua', texto: 'Se inunda el campo y los frutos maduros suben a la superficie. Con rastrillos se reúnen en la orilla y una cinta los sube a las bandejas.', video: '{% endverbatim %}{% static 'video/cosecha_agua.mp4' %}{% verbatim %}', poster: '{% endverbatim %}{% static 'img/cosecha_agua_poster.jpg' %}{% verbatim %}', alt: 'Video de la cosecha: el campo inundado cubierto de cranberries y trabajadores reuniéndolos' },
+      { titulo: 'Recolección y lavado', texto: 'Los frutos se arrastran hasta la cinta transportadora y se lavan con agua limpia para sacar hojas y restos del campo.', video: '{% endverbatim %}{% static 'video/recoleccion_lavado.mp4' %}{% verbatim %}', poster: '{% endverbatim %}{% static 'img/recoleccion_lavado_poster.jpg' %}{% verbatim %}', alt: 'Video del lavado: cranberries lavados con agua sobre una mesa y subiendo por una cinta' },
+      { titulo: 'Selección en bandejas', texto: 'La cinta deja caer los frutos en bandejas, y cada una se rotula con la poza de donde viene antes de ir a la planta.', video: '{% endverbatim %}{% static 'video/seleccion_bandejas.mp4' %}{% verbatim %}', poster: '{% endverbatim %}{% static 'img/seleccion_bandejas_poster.jpg' %}{% verbatim %}', alt: 'Video de cranberries cayendo desde una cinta a bandejas rotuladas' },
+      { titulo: 'Del campo a tu mesa', texto: 'Con esa fruta elaboramos la mermelada y la conserva Gourmet Premium, listas para tu tabla de quesos.', video: '{% endverbatim %}{% static 'video/conserva_mesa.mp4' %}{% verbatim %}', poster: '{% endverbatim %}{% static 'img/conserva_mesa_poster.jpg' %}{% verbatim %}', alt: 'Video de conserva de cranberry servida sobre un queso en una tabla' }
+    ];
+    const np = pasosProceso.length;
+    const ps = this.state.paso;
+    const paso = { ...pasosProceso[ps], numero: 'Paso ' + (ps + 1) + ' de ' + np };
+    const pasosNav = pasosProceso.map((x, i) => {
+      const on = i === ps;
+      return {
+        n: String(i + 1),
+        titulo: x.titulo,
+        actual: on ? 'step' : 'false',
+        estilo: on ? 'background: #F8E3E8; color: #2E1A20; border: 1px solid #7A1A33; font-weight: 600' : 'background: #FFFFFF; color: #2E1A20; border: 1px solid #F0DCE1',
+        circulo: 'width: 34px; height: 34px; flex: none; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; ' + (on ? 'background: #7A1A33; color: #FFFFFF' : 'background: #FBF1F3; color: #7A1A33'),
+        ir: () => this.setState({ paso: i })
+      };
+    });
 
     const data = [
       { parte: 'Cerebro', key: 'cerebro', x: 120, y: 54, compuesto: 'Antioxidantes', titulo: 'Protege tus células', texto: 'Sus polifenoles y antocianinas ayudan a combatir los radicales libres, que aceleran el envejecimiento celular.' },
@@ -356,6 +373,9 @@ class Component extends DCLogic {
     const m = data.length;
     return {
       slide, puntos,
+      paso, pasosNav,
+      procesoAnterior: () => this.setState({ paso: (ps - 1 + np) % np }),
+      procesoSiguiente: () => this.setState({ paso: (ps + 1) % np }),
       anterior: () => this.setState({ slide: (s - 1 + n) % n }),
       siguiente: () => this.setState({ slide: (s + 1) % n }),
       partes, marcas, org, linea,
@@ -367,13 +387,13 @@ class Component extends DCLogic {
       frascos: [
         { nombre: 'Mermelada de cranberry', precio: '$6.990', desc: 'Gourmet Premium · 460 g. Para meriendas dulces y saladas.', etiqueta: 'Gourmet Premium', foto: '{% endverbatim %}{% static 'img/mermelada.jpg' %}{% verbatim %}', sinFoto: false },
         { nombre: 'Conserva de cranberry', precio: '$7.490', desc: 'Gourmet Premium · 460 g. Fruta entera para tablas y platos.', etiqueta: 'Gourmet Premium', foto: '{% endverbatim %}{% static 'img/conserva.jpg' %}{% verbatim %}', sinFoto: false },
-        { nombre: 'Pulpa de cranberry', precio: '$9.990', desc: '1 kg, 100% natural y sin azúcar añadida.', etiqueta: 'IQF y Pulpa', foto: '{% endverbatim %}{% static 'img/pulpa.jpg' %}{% verbatim %}', sinFoto: false },
-        { nombre: '100% jugo de cranberry', precio: '$4.990', desc: '1 L, sin azúcar añadida.', etiqueta: 'Sin azúcar añadida', foto: '{% endverbatim %}{% static 'img/jugo.jpg' %}{% verbatim %}', sinFoto: false }
+        { nombre: 'Caja mixta · 12 frascos', precio: '$81.600', desc: '6 mermeladas y 6 conservas, a $6.800 cada frasco.', etiqueta: 'Caja mixta', foto: '{% endverbatim %}{% static 'img/caja_mixta.jpg' %}{% verbatim %}', sinFoto: false, unidades: 12 },
+        { nombre: 'Caja de 12 frascos', precio: '$81.600', desc: '12 mermeladas o 12 conservas, a $6.800 cada frasco.', etiqueta: 'Un solo producto', foto: '{% endverbatim %}{% static 'img/conserva_abierta.jpg' %}{% verbatim %}', sinFoto: false, unidades: 12 }
       ],
       recetas: [
         { nombre: 'Crostinis de cranberry y queso', usa: 'Mermelada', foto: '{% endverbatim %}{% static 'img/receta_crostini.jpg' %}{% verbatim %}' },
-        { nombre: 'Queque invertido de cranberry', usa: 'Cranberry IQF', foto: '{% endverbatim %}{% static 'img/receta_queque.jpg' %}{% verbatim %}' },
-        { nombre: 'Muffins de cranberry y naranja', usa: 'Cranberry IQF', foto: '{% endverbatim %}{% static 'img/receta_muffins.jpg' %}{% verbatim %}' }
+        { nombre: 'Queque invertido de cranberry', usa: 'Conserva', foto: '{% endverbatim %}{% static 'img/receta_queque.jpg' %}{% verbatim %}' },
+        { nombre: 'Muffins de cranberry y naranja', usa: 'Mermelada', foto: '{% endverbatim %}{% static 'img/receta_muffins.jpg' %}{% verbatim %}' }
       ]
     };
   }
